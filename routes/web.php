@@ -1,0 +1,106 @@
+<?php
+
+use Illuminate\Support\Facades\Route;
+use Livewire\Volt\Volt;
+
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\AboutController;
+use App\Http\Controllers\ContactController;
+use App\Http\Controllers\FeaturesController;
+use App\Http\Controllers\RegisterController;
+use App\Http\Controllers\ApplicationController;
+use App\Http\Controllers\InterviewController;
+use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\Auth\AuthenticatedSessionController;
+use App\Livewire\KanbanBoard;
+use App\Http\Controllers\UserController;
+
+
+
+// Route::get('/', [HomeController::class, 'index']);
+Route::get('/home', [HomeController::class, 'home'])->name('home');
+Route::get('/about', [AboutController::class, 'about'])->name('about');
+Route::get('/contact', [ContactController::class, 'contact'])->name('contact');
+Route::get('/features', [FeaturesController::class, 'features'])->name('features');
+// Route::get('/register', [RegisterController::class, 'register'])->name('register');
+
+// Route::get('/', function () {
+//     return view('home');
+// })->name('home');
+
+Route::view('dashboard', 'dashboard')
+    ->middleware(['auth', 'verified'])
+    ->name('dashboard');
+
+Route::middleware(['auth'])->group(function () {
+    Route::redirect('settings', 'settings/profile');
+
+    Volt::route('settings/profile', 'settings.profile')->name('settings.profile');
+    Volt::route('settings/password', 'settings.password')->name('settings.password');
+    Volt::route('settings/appearance', 'settings.appearance')->name('settings.appearance');
+});
+
+
+Route::middleware(['auth'])->group(function () {
+    // Dashboard
+    Route::get('/dashboard', DashboardController::class)->name('dashboard');
+    
+    
+    Route::get('/applications/board', KanbanBoard::class)->name('applications.board');
+    
+    // Applications Resource Routes
+    Route::resource('applications', ApplicationController::class);
+    
+    // Application Documents
+    Route::get('/applications/documents/{document}/download', [ApplicationController::class, 'downloadDocument'])
+        ->name('applications.documents.download');
+    
+    Route::delete('/applications/documents/{document}', [ApplicationController::class, 'destroyDocument'])
+        ->name('applications.documents.destroy');
+        
+    // Interviews
+    Route::get('/interviews', [InterviewController::class, 'index'])->name('interviews.index');
+
+    Route::get('/interviews/calendar', [InterviewController::class, 'calendar'])->name('interviews.calendar');
+
+    // Contacts
+    Route::get('/contacts', [ContactController::class, 'index'])->name('contacts.index');
+
+    
+});
+
+// interviews
+Route::get('/interviews/calendar', [InterviewController::class, 'calendar'])->name('interviews.calendar');
+
+Route::get('/interviews/create', [InterviewController::class, 'create'])->name('interviews.create');
+
+Route::post('/interviews', [InterviewController::class, 'store'])->name('interviews.store');
+
+Route::post('/logout',      [AuthenticatedSessionController::class, 'destroy'])
+    ->name('logout')
+    ->middleware('auth');
+
+
+Route::middleware('guest')->group(function () {
+    Route::get('/', function () {
+        return view('home');
+    })->name('home');
+});
+
+
+
+Route::middleware(['auth'])->group(function () {
+    Route::get('/interviews/{interview}/edit', [InterviewController::class, 'edit'])->name('interviews.edit');
+    Route::put('/interviews/{interview}', [InterviewController::class, 'update'])->name('interviews.update');
+    Route::delete('/interviews/{interview}', [InterviewController::class, 'destroy'])->name('interviews.destroy');
+});
+
+
+Route::middleware(['auth', 'admin'])->group(function () {
+    // Admin-only routes here
+    Route::get('/dashboard/users', [UserController::class, 'index'])->name('users.index');
+    Route::patch('/dashboard/users/{user}/role', [UserController::class, 'updateRole'])->name('users.updateRole');
+    Route::delete('/dashboard/users/{user}', [UserController::class, 'destroy'])->name('users.destroy');
+});
+
+require __DIR__.'/auth.php';
