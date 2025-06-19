@@ -46,6 +46,7 @@
                             <option value="rejected">Rejected</option>
                             <option value="withdrawn">Withdrawn</option>
                             <option value="not_accepting">No Longer Accepting Applications</option>
+                            <option value="accepted" @selected(old('status') == 'accepted')>Accepted</option>
                         </flux:select>
                     </div>
 

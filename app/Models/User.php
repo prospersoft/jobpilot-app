@@ -90,5 +90,13 @@ class User extends Authenticatable
     {
         return $this->hasMany(Document::class);
     }
+
+    /**
+     * Get all wishlists for the user.
+     */
+    public function wishlists(): HasMany
+    {
+        return $this->hasMany(Wishlist::class);
+    }
 }
 

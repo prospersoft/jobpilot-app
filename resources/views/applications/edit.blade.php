@@ -65,6 +65,7 @@
                             <option value="rejected" {{ old('status', $application->status) == 'rejected' ? 'selected' : '' }}>Rejected</option>
                             <option value="withdrawn" {{ old('status', $application->status) == 'withdrawn' ? 'selected' : '' }}>Withdrawn</option>
                             <option value="not_accepting" {{ old('status', $application->status) == 'not_accepting' ? 'selected' : '' }}>No Longer Accepting Applications</option>
+                            <option value="accepted" {{ old('status', $application->status) == 'accepted' ? 'selected' : '' }}>Accepted</option>
                         </flux:select>
                     </div>
 

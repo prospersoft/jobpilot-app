@@ -55,7 +55,7 @@
                 class="w-full md:w-1/3" />
             <flux:select name="status" class="w-full md:w-auto">
                 <option value="">All Statuses</option>
-                @foreach(['applied', 'screening', 'interviewing', 'offer', 'rejected', 'withdrawn', 'not_accepting', 'wishlist'] as $status)
+                @foreach(['applied', 'screening', 'interviewing', 'offer', 'rejected', 'withdrawn', 'not_accepting', 'accepted', 'wishlist'] as $status)
                     <option value="{{ $status }}" @selected(request('status') === $status)>{{ ucfirst(str_replace('_', ' ', $status)) }}</option>
                 @endforeach
             </flux:select>
@@ -86,22 +86,22 @@
                                 
                                 <td class="px-6 py-4 whitespace-nowrap text-sm">
                                     <a href="{{ route('applications.show', $application) }}">
-                                        <flux:button variant="primary" class="px-2 py-1 text-xs bg-blue-600 hover:bg-blue-700 text-white">
-                                            <i class="fa fa-eye"></i>
-                                        </flux:button>
+                                        <button variant="primary" class="px-2 py-1 text-xs  text-white">
+                                            <i class="fa fa-eye text-blue-400"></i>
+                                        </button>
                                     </a>
                                     <a href="{{ route('applications.edit', $application) }}">
-                                        <flux:button variant="primary" class="px-2 py-1 text-xs bg-green-600 hover:bg-green-700 text-white">
-                                            <i class="fa-solid fa-pen-to-square"></i>
-                                        </flux:button>
+                                        <button  class="px-2 py-1 text-xs text-white">
+                                            <i class="fa-solid fa-pen-to-square text-green-400"></i>
+                                        </button>
                                     </a>
                                     <form action="{{ route('applications.destroy', $application) }}" method="POST" class="inline" data-delete
                                         @submit.prevent="form = $event.target; show = true;">
                                         @csrf
                                         @method('DELETE')
-                                        <flux:button type="submit" variant="danger" class="px-2 py-1 text-xs">
-                                            <i class="fa-solid fa-trash"></i>
-                                        </flux:button>
+                                        <button type="submit"  class="px-2 py-1 text-xs">
+                                            <i class="fas fa-trash-alt text-red-400"></i>
+                                        </button>
                                     </form>
                                 </td>
                             </tr>

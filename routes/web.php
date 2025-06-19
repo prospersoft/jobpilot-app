@@ -14,6 +14,7 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\Auth\AuthenticatedSessionController;
 use App\Livewire\KanbanBoard;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\WishlistController;
 
 
 
@@ -45,6 +46,11 @@ Route::middleware(['auth'])->group(function () {
     // Dashboard
     Route::get('/dashboard', DashboardController::class)->name('dashboard');
     
+    // // Wishlists Resource Routes
+    Route::resource('wishlists', WishlistController::class);
+
+
+     Route::get('/wishlists', [WishlistController::class, 'index'])->name('wishlists.index');
     
     Route::get('/applications/board', KanbanBoard::class)->name('applications.board');
     
@@ -68,6 +74,9 @@ Route::middleware(['auth'])->group(function () {
 
     
 });
+
+
+Route::put('/applications/{application}', [ApplicationController::class, 'update'])->name('applications.update');
 
 // interviews
 Route::get('/interviews/calendar', [InterviewController::class, 'calendar'])->name('interviews.calendar');

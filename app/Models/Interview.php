@@ -12,16 +12,21 @@ class Interview extends Model
         'title',
         'scheduled_at',
         'notes',
-        'user_id', 
+        'user_id',
+        'application_id'
     ];
 
     protected $casts = [
         'scheduled_at' => 'datetime',
     ];
 
-    // Relationships (example: if an interview belongs to an application)
-    // public function application()
-    // {
-    //     return $this->belongsTo(Application::class);
-    // }
+    public function application()
+    {
+        return $this->belongsTo(Application::class);
+    }
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
 }

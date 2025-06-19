@@ -1,15 +1,8 @@
-<div class="kanban-board bg-white   dark:bg-neutral-900 p-6 rounded-xl shadow-lg">
+<div class="kanban-board bg-white dark:bg-neutral-900 p-6 rounded-xl shadow-lg h-[calc(100vh-6rem)]">
     <div class="mb-4 flex justify-between items-center">
-        <h2 class="text-xl font-bold text-black  dark:!text-neutral-100">Job Applications Board</h2>
+        <h2 class="text-xl font-bold text-black dark:!text-neutral-100">Job Applications Board</h2>
         <div class="flex flex-col gap-2 sm:flex-row sm:gap-2 w-full sm:w-auto">
-        <!-- Wishlist Button -->
-        <flux:button 
-            wire:click="$toggle('showWishlistForm')"
-            variant="primary"
-            class="bg-blue-600 hover:bg-blue-700 text-white w-full sm:w-auto"
-        >
-            Add to Wishlist
-        </flux:button>
+        
 
         <!-- Add Job Button -->
         <a href="{{ route('applications.create') }}" 
@@ -23,74 +16,14 @@
     </div>
     </div>
     
-
-
-    <!-- Wishlist Form Modal -->
-    @if($showWishlistForm)
-        <div class="fixed inset-0 bg-black/50 flex items-center justify-center z-50">
-            <div class="bg-white dark:bg-neutral-900 p-6 rounded-xl w-full max-w-md mx-4 shadow-lg">
-                <h3 class="text-lg font-semibold text-neutral-900 dark:text-neutral-100 mb-4">Add to Wishlist</h3>
-                <form wire:submit="addToWishlist" class="space-y-4">
-                    <div>
-                        <label class="block text-sm font-medium text-neutral-900 dark:text-neutral-100">Job Title</label>
-                        <flux:input 
-                            type="text" 
-                            wire:model="newWishlist.job_title"
-                            class="mt-1 w-full"
-                        />
-                        @error('newWishlist.job_title') 
-                            <p class="mt-1 text-sm text-red-500">{{ $message }}</p>
-                        @enderror
-                    </div>
-
-                    <div>
-                        <label class="block text-sm font-medium text-neutral-900 dark:text-neutral-100">Company</label>
-                        <flux:input 
-                            type="text" 
-                            wire:model="newWishlist.company_name"
-                            class="mt-1 w-full"
-                        />
-                        @error('newWishlist.company_name') 
-                            <p class="mt-1 text-sm text-red-500">{{ $message }}</p>
-                        @enderror
-                    </div>
-
-                    <div>
-                        <label class="block text-sm font-medium text-neutral-900 dark:text-neutral-100">Notes</label>
-                        <flux:textarea 
-                            wire:model="newWishlist.notes"
-                            rows="3"
-                            class="mt-1 w-full"
-                        ></flux:textarea>
-                    </div>
-
-                    <div class="flex justify-end gap-3">
-                        <flux:button 
-                            type="button"
-                            variant="primary"
-                            wire:click="$toggle('showWishlistForm')"
-                            class="bg-gray-600 hover:bg-gray-700 text-white"
-                        >
-                            Cancel
-                        </flux:button>
-                        <flux:button 
-                            type="submit"
-                            variant="primary"
-                            class="bg-blue-600 hover:bg-blue-700 text-white"
-                        >
-                            Add to Wishlist
-                        </flux:button>
-                    </div>
-                </form>
-            </div>
-        </div>
-    @endif
-    
-    <div class="flex gap-6 overflow-x-auto pb-4">
+    <div class="flex gap-6 overflow-x-auto pb-4 h-[calc(100vh-12rem)]
+        scrollbar-thin scrollbar-thumb-gray-400 dark:scrollbar-thumb-gray-600 
+        scrollbar-track-gray-200 dark:scrollbar-track-gray-800 
+        hover:scrollbar-thumb-gray-500 dark:hover:scrollbar-thumb-gray-500">
         @foreach($columns as $status => $title)
         
             <div 
-                class="kanban-column bg-white dark:bg-neutral-800 rounded-lg shadow-md p-4 w-64 flex-shrink-0"
+                class="kanban-column bg-white dark:bg-neutral-800 rounded-lg shadow-md p-4 w-64 flex-shrink-0 flex flex-col"
                 data-status="{{ $status }}"
                 x-data="dropZone"
                 x-on:dragover.prevent="onDragOver($event)"
@@ -100,66 +33,101 @@
                 <div>
                     <span class="font-semibold text-neutral-900 dark:text-neutral-100">{{ $title }}</span>
                     <span class="ml-2 inline-flex items-center justify-center rounded-full bg-blue-100 dark:bg-blue-900 text-blue-700 dark:text-blue-200 text-xs px-2 py-0.5">
-                        {{ $applications->get($status)?->count() ?? 0 }}
+                        @if($status === 'wishlist')
+                            {{ $wishlists->count() }}
+                        @else
+                            {{ $applications->get($status)?->count() ?? 0 }}
+                        @endif
                     </span>
                 </div>
-                @if($status === 'wishlist')
-                    <flux:button
-                        wire:click="$toggle('showWishlistForm')"
-                        variant="primary"
-                        class="ml-2 bg-blue-600 hover:bg-blue-700 text-white"
-                    >
-                        <svg class="w-4 h-4 mr-1 inline" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"/>
-                        </svg>
-                        Add
-                    </flux:button>
-                @endif
+                
             </div>
 
-                <div class="kanban-cards-container">
-                    @forelse($applications->get($status, collect()) as $application)
-                        <div
-                            class="kanban-card bg-white dark:bg-neutral-800 rounded-lg shadow p-4 mb-2 cursor-pointer"
-                            draggable="true"
-                            data-id="{{ $application->id }}"
-                            data-status="{{ $application->status }}"
-                            x-on:dragstart="onDragStart($event)"
-                            x-on:dragend="onDragEnd($event)"
-                        >
-                            <h4 class="kanban-card-title text-neutral-900 dark:text-neutral-100 font-semibold mb-1">
-                                <a href="{{ route('applications.show', $application) }}" class="hover:underline">
-                                    {{ $application->job_title }}
-                                </a>
-                                {{ $application->job_title }}
-                            </h4>
-                            <p class="kanban-card-company text-neutral-700 dark:text-neutral-300 text-sm mb-2">
-                                <svg class="w-4 h-4 inline mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" 
-                                          d="M3 12l2-2m0 0l7-7m-7 2h14a2 2 0 012 2v14a2 2 0 01-2 2H5a2 2 0 01-2-2V7a2 2 0 012-2zm0 0l7 7m0 0l2 2m-2-2l7-7m  7 0l-2 2m-7-7l-2 2m0 0l-7 7m14 0l-7 7m0 0l-2 2m2-2l7-7" />
-                                </svg>  
-                                {{ $application->company_name }}
-                            </p>
-                            <div class="kanban-card-date">
-                                <svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" 
-                                          d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
-                                </svg>
-                                {{ $application->created_at->format('M j, Y') }}
+                <div class="kanban-cards-container overflow-y-auto h-[calc(100vh-12rem)] pr-2 
+                    scrollbar-thin scrollbar-thumb-gray-400 dark:scrollbar-thumb-gray-600 
+                    scrollbar-track-gray-200 dark:scrollbar-track-gray-800 
+                    hover:scrollbar-thumb-gray-500 dark:hover:scrollbar-thumb-gray-500">
+                    @if($status === 'wishlist')
+                        @forelse($wishlists as $item)
+                            <div class="kanban-card bg-white dark:bg-neutral-800 rounded-lg shadow p-4 mb-2">
+                                <div class="flex justify-between items-start">
+                                    <h4 class="kanban-card-title text-neutral-900 dark:text-neutral-100 font-semibold mb-1">
+                                        {{ $item->job_title }}
+                                    </h4>
+                                    
+                                </div>
+                                <p class="kanban-card-company text-neutral-700 dark:text-neutral-300 text-sm mb-2">
+                                    <svg class="w-4 h-4 inline mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/>
+                                    </svg>
+                                    {{ $item->company_name }}
+                                </p>
+                                @if($item->location)
+                                    <p class="text-sm text-neutral-600 dark:text-neutral-400">
+                                        <svg class="w-4 h-4 inline mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
+                                        </svg>
+                                        {{ $item->location }}
+                                        <div class="kanban-card-date text-sm text-neutral-600 dark:text-neutral-400">
+                                            <svg class="w-4 h-4 inline mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" 
+                                                    d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>
+                                            </svg>
+                                            {{ $item->created_at->format('M j, Y') }}
+                                        </div>
+                                    </p>
+                                @endif
+                                <div class="mt-2 flex justify-end">
+                                    <a href="{{ route('applications.create', ['from_wishlist' => $item->id]) }}" 
+                                       class="text-blue-600 hover:text-blue-800 text-sm">
+                                        Convert to Application →
+                                    </a>
+                                </div>
                             </div>
-                        </div>
-                    @empty
-                        <div class="text-neutral-500 text-sm text-center py-4">
-                            @if($status === 'wishlist')
+                        @empty
+                            <div class="text-neutral-500 text-sm text-center py-4">
                                 Add jobs you're interested in
-                            @else
+                            </div>
+                        @endforelse
+                    @else
+                        @forelse($applications->get($status, collect()) as $application)
+                            <div
+                                class="kanban-card bg-white dark:bg-neutral-800 rounded-lg shadow p-4 mb-2 cursor-pointer"
+                                draggable="true"
+                                data-id="{{ $application->id }}"
+                                data-status="{{ $application->status }}"
+                                x-on:dragstart="onDragStart($event)"
+                                x-on:dragend="onDragEnd($event)"
+                            >
+                                <h4 class="kanban-card-title text-neutral-900 dark:text-neutral-100 font-semibold mb-1">
+                                    <a href="{{ route('applications.show', $application) }}" class="hover:underline">
+                                        {{ $application->job_title }}
+                                    </a>
+                                </h4>
+                                <p class="kanban-card-company text-neutral-700 dark:text-neutral-300 text-sm mb-2">
+                                    <svg class="w-4 h-4 inline mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" 
+                                              d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/>
+                                    </svg>
+                                    {{ $application->company_name }}
+                                </p>
+                                <div class="kanban-card-date text-sm text-neutral-600 dark:text-neutral-400">
+                                    <svg class="w-4 h-4 inline mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" 
+                                              d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>
+                                    </svg>
+                                    {{ $application->created_at->format('M j, Y') }}
+                                </div>
+                            </div>
+                        @empty
+                            <div class="text-neutral-500 text-sm text-center py-4">
                                 No applications
-                            @endif
-                        </div>
-                    @endforelse
+                            </div>
+                        @endforelse
+                    @endif
                 </div>
             </div>
         @endforeach
     </div>
 </div>
-

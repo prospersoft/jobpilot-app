@@ -119,6 +119,7 @@ class ApplicationController extends Controller
         // Check if user owns this application
         if ($application->user_id !== auth()->id()) {
             abort(403, 'Unauthorized action.');
+           
         }
 
         try {
@@ -128,12 +129,13 @@ class ApplicationController extends Controller
             $validated = $request->validate([
                 'company_name' => 'required|string|max:255',
                 'job_title' => 'required|string|max:255',
-                'status' => 'required|string|in:applied,screening,interviewing,offer,rejected,withdrawn,not_accepting',
+                'status' => 'required|string|in:applied,screening,interviewing,offer,rejected,withdrawn,not_accepting,accepted,wishlist',
                 'applied_date' => 'nullable|date',
                 'location' => 'nullable|string|max:255',
                 'salary_range' => 'nullable|string|max:255',
                 'follow_up_date' => 'nullable|date|after_or_equal:today',
                 'follow_up_notes' => 'nullable|string|max:1000',
+                'notes' => 'nullable|string|max:1000',
             ], [
                 'company_name.required' => 'Please enter the company name',
                 'job_title.required' => 'Please enter the job title',
@@ -202,9 +204,15 @@ class ApplicationController extends Controller
 
             DB::commit();
 
-            return redirect()
-                ->route('applications.index')
-                ->with('success', 'Application updated successfully!');
+            if ($application->status === 'wishlist') {
+                return redirect()
+                    ->route('applications.index')
+                    ->with('success', 'Wishlist updated successfully!');
+            } else {
+                return redirect()
+                    ->route('applications.index')
+                    ->with('success', 'Application updated successfully!');
+            }
 
         } catch (\Exception $e) {
             DB::rollBack();

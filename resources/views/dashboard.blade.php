@@ -90,6 +90,21 @@
                                 <div class="text-2xl font-bold text-red-800 dark:text-red-800">{{ $notAccepting ?? 0 }}</div>
                                 <div class="text-sm text-black dark:text-black">No longer Accepting</div>
                             </div>
+                            <div class="bg-green-50 dark:bg-green-900/20 rounded-lg p-4">
+                            <div class="flex items-center justify-between">
+                                <div>
+                                    <p class="text-sm font-medium text-green-600 dark:text-green-400">Accepted</p>
+                                    <p class="text-2xl font-bold text-green-800 dark:text-green-300">
+                                        {{ $accepted ?? 0 }}
+                                    </p>
+                                </div>
+                                <div class="p-3 bg-green-100 dark:bg-green-800/40 rounded-full">
+                                    <svg class="w-6 h-6 text-green-600 dark:text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                    </svg>
+                                </div>
+                            </div>
+                        </div>
                             <div class="!bg-orange-200 dark:bg-orange-200/20 p-4 rounded-lg">
                             <div class="text-2xl font-bold !text-orange-800 dark:!text-orange-800 mb-2">
                                 {{ $mostAppliedRoles->sum('total') ?? 0 }}
@@ -110,7 +125,7 @@
                     </div>
 
                     <!-- Recent Applications -->
-                    <div>
+                    <div class="flex-1 min-h-0"> <!-- Add flex-1 and min-h-0 to ensure proper height calculation -->
                         <div class="flex items-center justify-between mb-4">
                             <h3 class="text-lg font-semibold text-neutral-900 dark:text-white">Recent Applications</h3>
                             <a href="{{ route('applications.index') }}">
@@ -119,16 +134,20 @@
                                 </flux:button>
                             </a>
                         </div>
-                        <div class="space-y-4">
+                        <div class="h-[calc(100vh-24rem)] overflow-y-auto px-1
+                            scrollbar scrollbar-thin scrollbar-thumb-rounded-md
+                            scrollbar-thumb-gray-400 dark:scrollbar-thumb-gray-600 
+                            scrollbar-track-gray-200 dark:scrollbar-track-gray-800 
+                            hover:scrollbar-thumb-gray-500 dark:hover:scrollbar-thumb-gray-500">
                             @forelse($recentApplications ?? [] as $application)
-                                <div class="flex items-center justify-between p-4 bg-neutral-50 dark:bg-neutral-800 rounded-lg">
+                                <div class="flex items-center justify-between p-4 bg-neutral-50 dark:bg-neutral-800 rounded-lg mb-3">
                                     <div class="flex items-center space-x-4">
                                         <div class="w-10 h-10 bg-gradient-to-br from-blue-500 to-purple-600 rounded-lg flex items-center justify-center">
-                                            <span class="text-white font-semibold text-sm">{{ substr($application->company_name ?? 'C', 0, 1) }}</span>
+                                            <span class="text-white font-semibold text-sm">{{ substr($application->company_name ?: ($application->job_title ?: 'C'), 0, 1) }}</span>
                                         </div>
                                         <div>
                                             <h4 class="font-medium text-neutral-900 dark:text-white">{{ $application->job_title ?? 'Job Title' }}</h4>
-                                            <p class="text-sm text-neutral-600 dark:text-neutral-400">{{ $application->company_name ?? 'Company Name' }}</p>
+                                            <p class="text-sm text-neutral-600 dark:text-neutral-400">{{ $application->company_name ?: 'Company Not Specified' }}</p>
                                         </div>
                                     </div>
                                     <div class="text-right">
@@ -138,7 +157,8 @@
                                             @elseif(($application->status ?? 'applied') === 'offer') bg-green-100 text-green-800 dark:bg-green-900/20 dark:text-green-400
                                             @elseif(($application->status ?? 'applied') === 'not_accepting') !bg-red-200 !text-red-800/90 dark:bg-red-200/20 dark:text-red-900
                                             @elseif(($application->status ?? 'applied') === 'wishlist') bg-red-100 text-red-800 dark:bg-purple-300/20 dark:text-purple-300
-                                            @else bg-neutral-100 text-neutral-800 dark:bg-neutral-800 dark:text-neutral-400
+
+                                            @else bg-green-100 text-green-800 dark:bg-green-900/20 dark:text-green-400
                                             @endif">
                                             {{ ucfirst($application->status ?? 'Applied') }}
                                         </span>
@@ -229,17 +249,16 @@
                                             </p>
                                             <div class="flex items-center justify-end gap-2 mt-1">
                                                 <a href="{{ route('interviews.edit', $interview) }}">
-                                                    <flux:button class="text-xs bg-blue-600 hover:bg-blue-700 text-white">
-                                                        <i class="fa-solid text-blue-500 fa-pencil-alt fa-lg mr-1"></i>
-                                                    </flux:button>
+                                                    <button class="">
+                                                        <i class="fa-solid fa-pen-to-square  text-blue-400"></i>
+                                                    </button>
                                                 </a>
                                                 <form action="{{ route('interviews.destroy', $interview) }}" method="POST" class="inline" onsubmit="return confirm('Delete this interview?')">
                                                     @csrf
                                                     @method('DELETE')
-                                                    <flux:button type="submit"  class="text-xs bg-red-600 hover:bg-red-700 text-white">
-                                                        <i class="fa-solid text-red-500 fa-trash fa-lg mr-1"></
-                                                        <i class="fa-solid fa-trash fa-lg mr-1"></i>
-                                                    </flux:button>
+                                                    <button type="submit"  class="">
+                                                         <i class="fas fa-trash-alt text-red-400"></i>
+                                                    </button>
                                                 </form>
                                             </div>
                                         </div>
@@ -270,7 +289,7 @@
                                 </div>
                             </div>
                             <div>
-                                <div class="flex justify-between items-center mb-2">
+                                <div class="flex justify-between items-center mb-2 ">
                                     <span class="text-sm text-neutral-600 dark:text-neutral-400">Follow-ups</span>
                                     <span class="text-sm font-medium text-neutral-900 dark:text-white">{{ $weeklyFollowups ?? 0 }}/{{ $followupGoal ?? 3 }}</span>
                                 </div>

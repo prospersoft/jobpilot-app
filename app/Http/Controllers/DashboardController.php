@@ -29,16 +29,30 @@ class DashboardController extends Controller
         $rejected = $user->applications()->where('status', 'rejected')->count();
         $withdrawn = $user->applications()->where('status', 'withdrawn')->count();
         $notAccepting = Application::where('status', 'not_accepting')->where('user_id', auth()->id())->count();
+        $accepted = \App\Models\Application::where('user_id', $userId)
+            ->where('status', 'accepted')
+            ->count();
 
-        
         // Calculate response rate
         $totalResponses = $screening + $interviewing + $offers + $rejected;
         $responseRate = $totalApplications > 0 ? round(($totalResponses / $totalApplications) * 100) : 0;
         
-        // // Get active interviews
-        // $activeInterviews = $user->applications()
-        //     ->where('status', 'interviewing')
-        //     ->count();
+        // Get active interviews and upcoming interviews
+        $activeInterviews = $user->applications()
+            ->where('status', 'interviewing')
+            ->count();
+
+        $upcomingInterviews = Interview::where('user_id', $userId)
+            ->where('scheduled_at', '>', now())
+            ->where('scheduled_at', '<=', now()->addWeek())
+            ->count();
+
+        $upcomingInterviewsList = Interview::with('application')
+            ->where('user_id', $userId)
+            ->where('scheduled_at', '>', now())
+            ->orderBy('scheduled_at')
+            ->limit(5)
+            ->get();
             
         // Get weekly data for chart
         $weeklyData = [];
@@ -118,6 +132,7 @@ class DashboardController extends Controller
             'weeklyFollowups',
             'upcomingInterviewsList',
             'mostAppliedRoles',
+            'accepted'
         ));
     }
 
