@@ -111,10 +111,7 @@ Route::middleware('guest')->group(function () {
     })->name('home');
 });
 
-Route::get('/run-migrate', function () {
-    Artisan::call('migrate', ['--force' => true]);
-    return 'Migration complete.';
-});
+
 
 Route::middleware(['auth'])->group(function () {
     Route::get('/interviews/{interview}/edit', [InterviewController::class, 'edit'])->name('interviews.edit');
@@ -128,6 +125,11 @@ Route::middleware(['auth', 'admin'])->group(function () {
     Route::get('/dashboard/users', [UserController::class, 'index'])->name('users.index');
     Route::patch('/dashboard/users/{user}/role', [UserController::class, 'updateRole'])->name('users.updateRole');
     Route::delete('/dashboard/users/{user}', [UserController::class, 'destroy'])->name('users.destroy');
+});
+
+Route::get('/run-migrate', function () {
+    Artisan::call('migrate', ['--force' => true]);
+    return 'Migration complete.';
 });
 
 require __DIR__.'/auth.php';
