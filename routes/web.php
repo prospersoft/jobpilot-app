@@ -3,10 +3,6 @@
 use Illuminate\Support\Facades\Route;
 use Livewire\Volt\Volt;
 
-// use Illuminate\Support\Facades\Artisan;
-
-
-
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\AboutController;
 use App\Http\Controllers\ContactController;
@@ -26,8 +22,11 @@ use App\Http\Controllers\CookiesController;
 use App\Http\Controllers\DataController;
 use App\Http\Controllers\FaqsController;
 
-// Route::get('/', [HomeController::class, 'index']);
-Route::get('/home', [HomeController::class, 'home'])->name('home');
+// Public pages
+Route::get('/', function () {
+    return view('home');
+})->name('home');
+Route::get('/home', [HomeController::class, 'home']);
 Route::get('/about', [AboutController::class, 'about'])->name('about');
 Route::get('/contact', [ContactController::class, 'contact'])->name('contact');
 Route::get('/features', [FeaturesController::class, 'features'])->name('features');
@@ -38,98 +37,50 @@ Route::get('/cookies', [CookiesController::class, 'cookies'])->name('cookies');
 Route::get('/data', [DataController::class, 'data'])->name('data');
 Route::get('/faqs', [FaqsController::class, 'faqs'])->name('faqs');
 
-// Route::get('/register', [RegisterController::class, 'register'])->name('register');
-
-// Route::get('/', function () {
-//     return view('home');
-// })->name('home');
-
-Route::view('dashboard', 'dashboard')
-    ->middleware(['auth', 'verified'])
-    ->name('dashboard');
-
-Route::middleware(['auth'])->group(function () {
-    Route::redirect('settings', 'settings/profile');
-
-    Volt::route('settings/profile', 'settings.profile')->name('settings.profile');
-    Volt::route('settings/password', 'settings.password')->name('settings.password');
-    Volt::route('settings/appearance', 'settings.appearance')->name('settings.appearance');
-});
-
-
+// Authenticated user routes
 Route::middleware(['auth'])->group(function () {
     // Dashboard
     Route::get('/dashboard', DashboardController::class)->name('dashboard');
-    
-    // // Wishlists Resource Routes
+
+    // Settings (Volt)
+    Route::redirect('settings', 'settings/profile');
+    Volt::route('settings/profile', 'settings.profile')->name('settings.profile');
+    Volt::route('settings/password', 'settings.password')->name('settings.password');
+    Volt::route('settings/appearance', 'settings.appearance')->name('settings.appearance');
+
+    // Wishlists
     Route::resource('wishlists', WishlistController::class);
 
-
-     Route::get('/wishlists', [WishlistController::class, 'index'])->name('wishlists.index');
-    
+    // Kanban Board
     Route::get('/applications/board', KanbanBoard::class)->name('applications.board');
-    
-    // Applications Resource Routes
+
+    // Applications
     Route::resource('applications', ApplicationController::class);
-    
-    // Application Documents
-    Route::get('/applications/documents/{document}/download', [ApplicationController::class, 'downloadDocument'])
-        ->name('applications.documents.download');
-    
-    Route::delete('/applications/documents/{document}', [ApplicationController::class, 'destroyDocument'])
-        ->name('applications.documents.destroy');
-        
+    Route::get('/applications/documents/{document}/download', [ApplicationController::class, 'downloadDocument'])->name('applications.documents.download');
+    Route::delete('/applications/documents/{document}', [ApplicationController::class, 'destroyDocument'])->name('applications.documents.destroy');
+    Route::put('/applications/{application}', [ApplicationController::class, 'update'])->name('applications.update');
+
     // Interviews
     Route::get('/interviews', [InterviewController::class, 'index'])->name('interviews.index');
-
     Route::get('/interviews/calendar', [InterviewController::class, 'calendar'])->name('interviews.calendar');
+    Route::get('/interviews/create', [InterviewController::class, 'create'])->name('interviews.create');
+    Route::post('/interviews', [InterviewController::class, 'store'])->name('interviews.store');
+    Route::get('/interviews/{interview}/edit', [InterviewController::class, 'edit'])->name('interviews.edit');
+    Route::put('/interviews/{interview}', [InterviewController::class, 'update'])->name('interviews.update');
+    Route::delete('/interviews/{interview}', [InterviewController::class, 'destroy'])->name('interviews.destroy');
 
     // Contacts
     Route::get('/contacts', [ContactController::class, 'index'])->name('contacts.index');
 
-    
+    // Logout
+    Route::post('/logout', [AuthenticatedSessionController::class, 'destroy'])->name('logout');
 });
 
-
-Route::put('/applications/{application}', [ApplicationController::class, 'update'])->name('applications.update');
-
-// interviews
-Route::get('/interviews/calendar', [InterviewController::class, 'calendar'])->name('interviews.calendar');
-
-Route::get('/interviews/create', [InterviewController::class, 'create'])->name('interviews.create');
-
-Route::post('/interviews', [InterviewController::class, 'store'])->name('interviews.store');
-
-Route::post('/logout',      [AuthenticatedSessionController::class, 'destroy'])
-    ->name('logout')
-    ->middleware('auth');
-
-
-Route::middleware('guest')->group(function () {
-    Route::get('/', function () {
-        return view('home');
-    })->name('home');
-});
-
-
-
-Route::middleware(['auth'])->group(function () {
-    Route::get('/interviews/{interview}/edit', [InterviewController::class, 'edit'])->name('interviews.edit');
-    Route::put('/interviews/{interview}', [InterviewController::class, 'update'])->name('interviews.update');
-    Route::delete('/interviews/{interview}', [InterviewController::class, 'destroy'])->name('interviews.destroy');
-});
-
-
+// Admin-only routes
 Route::middleware(['auth', 'admin'])->group(function () {
-    // Admin-only routes here
     Route::get('/dashboard/users', [UserController::class, 'index'])->name('users.index');
     Route::patch('/dashboard/users/{user}/role', [UserController::class, 'updateRole'])->name('users.updateRole');
     Route::delete('/dashboard/users/{user}', [UserController::class, 'destroy'])->name('users.destroy');
 });
-
-// Route::get('/run-migrate', function () {
-//     Artisan::call('migrate', ['--force' => true]);
-//     return 'Migration complete.';
-// });
 
 require __DIR__.'/auth.php';
