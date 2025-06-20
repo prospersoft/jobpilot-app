@@ -3,6 +3,10 @@
 use Illuminate\Support\Facades\Route;
 use Livewire\Volt\Volt;
 
+use Illuminate\Support\Facades\Artisan;
+
+
+
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\AboutController;
 use App\Http\Controllers\ContactController;
@@ -107,7 +111,10 @@ Route::middleware('guest')->group(function () {
     })->name('home');
 });
 
-
+Route::get('/run-migrate', function () {
+    Artisan::call('migrate', ['--force' => true]);
+    return 'Migration complete.';
+});
 
 Route::middleware(['auth'])->group(function () {
     Route::get('/interviews/{interview}/edit', [InterviewController::class, 'edit'])->name('interviews.edit');
