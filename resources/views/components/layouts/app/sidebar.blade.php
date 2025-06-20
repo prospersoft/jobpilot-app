@@ -43,7 +43,7 @@
                         class="mt-2"
                     >
                         {{ __('Wishlists') }}
-                        <span class="ml-auto inline-flex items-center justify-center px-2 py-1 text-xs font-bold leading-none text-red-900 bg-red-400 rounded-full dark:bg-red-500 dark:text-red-200">
+                        <span class="ml-auto inline-flex items-center justify-center px-2 py-1 text-xs font-bold leading-none text-red-900 bg-red-400 rounded-full dark:bg-red-00 dark:text-red-200">
                             {{ auth()->user()->wishlists()->count() }}
                         </span>
                     </flux:navlist.item>
@@ -82,12 +82,8 @@
                 </flux:navlist.group>
             </flux:navlist>
 
-            <!-- Follow-ups section -->
-            <div class="px-4 mt-6 h-[calc(100vh-24rem)] overflow-y-auto px-1
-                            scrollbar scrollbar-thin scrollbar-thumb-rounded-md
-                            scrollbar-thumb-gray-400 dark:scrollbar-thumb-gray-600 
-                            scrollbar-track-gray-200 dark:scrollbar-track-gray-800 
-                            hover:scrollbar-thumb-gray-500 dark:hover:scrollbar-thumb-gray-500">
+            <!-- Add the follow-ups section here -->
+            <div class="px-4 mt-6 h-[calc(100vh-24rem)] overflow-y-auto">
                 <flux:navlist.group :heading="__('Follow-ups')" class="grid">
                     <div class="space-y-3">
                         @forelse($pendingFollowUps ?? [] as $followUp)

@@ -19,17 +19,18 @@
                 </div>
                 <h1 class="text-5xl md:text-7xl font-bold mb-6 slide-in">
                     The Modern Way to Track, 
-                    <span class="block gradient-text">Manage & Win Jobs.</span>
+                    <span class="block text-blue-600">Manage & Win Jobs.</span>
                 </h1>
                 <p class="text-xl text-gray-400 mb-12 max-w-3xl mx-auto slide-in">
                    Every Job seeker struggles to keep track of applications, follow-ups, interview dates and ghosting patterns. <b>This solves the real Pain.</b>
                 </p>
                 <div class="flex flex-col sm:flex-row gap-4 justify-center slide-in">
-                    <a href="/register" class="group bg-white text-black px-8 py-4 rounded-full text-lg font-medium hover:bg-gray-100 transition duration-300 flex items-center justify-center">
+                    <a href="/register" class="group bg-blue-600 text-white px-8 py-4 rounded-full text-lg font-medium hover:bg-blue-700 transition duration-300 flex items-center justify-center">
+                        <i class="fas fa-rocket mr-2"></i>
                         Get Started
                         <i class="fas fa-arrow-right ml-2 group-hover:translate-x-1 transition-transform"></i>
                     </a>
-                    <a href="#demo" class="glass text-white px-8 py-4 rounded-full text-lg font-medium hover:bg-white/10 transition duration-300 flex items-center justify-center">
+                    <a href="#demo" class="bg-black text-white px-8 py-4 rounded-full text-lg font-medium flex items-center justify-center">
                         <i class="fas fa-play-circle mr-2"></i>
                         Watch Demo
                     </a>
@@ -38,7 +39,7 @@
             
             <!-- Hero Image/Animation -->
             <div class="mt-20 relative">
-                <div class="glass rounded-2xl p-1 float-animation">
+                <div class="glass rounded-2xl ">
                     <img src="images/dash.png" alt="Dashboard Preview" class="rounded-2xl">
                 </div>
             </div>
@@ -50,19 +51,19 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
                 <div class="text-center">
-                    <h3 class="text-4xl font-bold gradient-text mb-2">10+</h3>
+                    <h3 class="text-4xl font-bold text-blue-600 mb-2">10+</h3>
                     <p class="text-gray-400">Active Users</p>
                 </div>
                 <div class="text-center">
-                    <h3 class="text-4xl font-bold gradient-text mb-2">5+</h3>
+                    <h3 class="text-4xl font-bold text-blue-600 mb-2">5+</h3>
                     <p class="text-gray-400">Jobs Tracked</p>
                 </div>
                 <div class="text-center">
-                    <h3 class="text-4xl font-bold gradient-text mb-2">85%</h3>
+                    <h3 class="text-4xl font-bold text-blue-600 mb-2">85%</h3>
                     <p class="text-gray-400">Success Rate</p>
                 </div>
                 <div class="text-center">
-                    <h3 class="text-4xl font-bold gradient-text mb-2">2.9/5</h3>
+                    <h3 class="text-4xl font-bold !text-blue-600 mb-2">2.9/5</h3>
                     <p class="text-gray-400">User Rating</p>
                 </div>
             </div>
@@ -81,6 +82,15 @@
             <div>
                 <div class="space-y-8">
                     <div class="flex items-start">
+                        <div class="w-12 h-12 bg-blue-600/20 rounded-xl flex items-center justify-center mr-4 flex-shrink-0">
+                            <i class="fas fa-columns text-blue-600"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-semibold mb-2">Kanban Style</h3>
+                            <p class="text-gray-400">Visualize your workflow with a flexible Kanban board, making it easy to manage tasks and deadlines.</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start">
                         <div class="w-12 h-12 bg-blue-500/20 rounded-xl flex items-center justify-center mr-4 flex-shrink-0">
                             <i class="fas fa-tasks text-blue-500"></i>
                         </div>
@@ -98,20 +108,12 @@
                             <p class="text-gray-400">Seamlessly sync across all your devices with instant updates, so you’re always up to date.</p>
                         </div>
                     </div>
-                    <div class="flex items-start">
-                        <div class="w-12 h-12 bg-purple-500/20 rounded-xl flex items-center justify-center mr-4 flex-shrink-0">
-                            <i class="fas fa-shield-alt text-purple-500"></i>
-                        </div>
-                        <div>
-                            <h3 class="text-xl font-semibold mb-2">Enterprise Security</h3>
-                            <p class="text-gray-400">Bank-level encryption and SOC 2 compliance for your peace of mind. Your data is always safe and private.</p>
-                        </div>
-                    </div>
+                    
                 </div>
             </div>
             <div>
-                <div class="glass rounded-2xl p-8">
-                    <img src="images/wishlist1.png" alt="Product Feature" class="rounded-xl">
+                <div class="glass rounded-2xl ">
+                    <img src="images/kanban-s.png" alt="Product Feature" class="rounded-xl">
                 </div>
             </div>
         </div>
@@ -134,9 +136,7 @@
                 </div>
                 <h3 class="text-2xl font-semibold mb-4">Analytics Dashboard</h3>
                 <p class="text-gray-400 mb-4">Visualize your job search progress with beautiful, actionable insights</p>
-                <a href="#" class="text-blue-400 hover:text-blue-300 font-medium flex items-center">
-                    Learn more <i class="fas fa-arrow-right ml-2"></i>
-                </a>
+                
             </div>
             
             <div class="glass rounded-2xl p-8 hover:bg-white/5 transition duration-300">
@@ -144,10 +144,7 @@
                     <i class="fas fa-bolt text-white text-xl"></i>
                 </div>
                 <h3 class="text-2xl font-semibold mb-4">Smart Reminders</h3>
-                <p class="text-gray-400 mb-4">Get personalized reminders for follow-ups, interviews, and deadlines—never miss an important step.</p>
-                <a href="#" class="text-blue-400 hover:text-blue-300 font-medium flex items-center">
-                    Learn more <i class="fas fa-arrow-right ml-2"></i>
-                </a>
+                <p class="text-gray-400 mb-4">Get personalized reminders for follow-ups, interviews, and deadlines—never miss an important step.</p>                
             </div>
             
             <div class="glass rounded-2xl p-8 hover:bg-white/5 transition duration-300">
@@ -156,42 +153,13 @@
                 </div>
                 <h3 class="text-2xl font-semibold mb-4">Integrations</h3>
                 <p class="text-gray-400 mb-4">Connect with LinkedIn, Indeed, and 50+ other platforms seamlessly</p>
-                <a href="#" class="text-blue-400 hover:text-blue-300 font-medium flex items-center">
-                    Learn more <i class="fas fa-arrow-right ml-2"></i>
-                </a>
             </div>
-                
-                <div class="glass rounded-2xl p-8 hover:bg-white/5 transition duration-300">
-                    <div class="w-14 h-14 bg-gradient-to-br from-pink-500 to-rose-500 rounded-xl flex items-center justify-center mb-6">
-                        <i class="fas fa-bell text-white text-xl"></i>
-                    </div>
-                    <h3 class="text-2xl font-semibold mb-4">Smart Notifications</h3>
-                    <p class="text-gray-400 mb-4">Never miss a deadline with intelligent reminders and follow-up alerts</p>
-                    <a href="#" class="text-blue-400 hover:text-blue-300 font-medium flex items-center">
-                        Learn more <i class="fas fa-arrow-right ml-2"></i>
-                    </a>
-                </div>
-                
-                <div class="glass rounded-2xl p-8 hover:bg-white/5 transition duration-300">
-                    <div class="w-14 h-14 bg-gradient-to-br from-yellow-500 to-amber-500 rounded-xl flex items-center justify-center mb-6">
-                        <i class="fas fa-users text-white text-xl"></i>
-                    </div>
-                    <h3 class="text-2xl font-semibold mb-4">Community Support</h3>
-                    <p class="text-gray-400 mb-4">Join our community of job seekers and share tips, resources, and support</p>
-                    <a href="#" class="text-blue-400 hover:text-blue-300 font-medium flex items-center">
-                        Learn more <i class="fas fa-arrow-right ml-2"></i>
-                    </a>
-
-                </div>
                 <div class="glass rounded-2xl p-8 hover:bg-white/5 transition duration-300">
                     <div class="w-14 h-14 bg-gradient-to-br from-indigo-500 to-violet-500 rounded-xl flex items-center justify-center mb-6">
                         <i class="fas fa-lock text-white text-xl"></i>
                     </div>
                     <h3 class="text-2xl font-semibold mb-4">Privacy First</h3>
                     <p class="text-gray-400 mb-4">Your data is yours. We never sell or share your information</p>
-                    <a href="#" class="text-blue-400 hover:text-blue-300 font-medium flex items-center">
-                        Learn more <i class="fas fa-arrow-right ml-2"></i>
-                    </a>
                 </div>
                 <div class="glass rounded-2xl p-8 hover:bg-white/5 transition duration-300">
                     <div class="w-14 h-14 bg-gradient-to-br from-gray-500 to-gray-700 rounded-xl flex items-center justify-center mb-6">
@@ -199,31 +167,16 @@
                     </div>
                     <h3 class="text-2xl font-semibold mb-4">Customizable</h3>
                     <p class="text-gray-400 mb-4">Tailor the platform to fit your unique job search needs</p>   
-                    <a href="#" class="text-blue-400 hover:text-blue-300 font-medium flex items-center">
-                        Learn more <i class="fas fa-arrow-right ml-2"></i>
-                    </a>
                 </div>
                 <div class="glass rounded-2xl p-8 hover:bg-white/5 transition duration-300">
                     <div class="w-14 h-14 bg-gradient-to-br from-indigo-500 to-purple-500 rounded-xl flex items-center justify-center mb-6">
                         <i class="fas fa-file-alt text-white text-xl"></i>
                     </div>
                     <h3 class="text-2xl font-semibold mb-4">Document Manager</h3>
-                    <p class="text-gray-400 mb-4">Store and organize resumes, cover letters, and portfolios with version control</p>
-                    <a href="#" class="text-blue-400 hover:text-blue-300 font-medium flex items-center">
-                        Learn more <i class="fas fa-arrow-right ml-2"></i>
-                    </a>
+                    <p class="text-gray-400 mb-4">Store and organize resumes and cover letters</p>
                 </div>
                 
-                <div class="glass rounded-2xl p-8 hover:bg-white/5 transition duration-300">
-                    <div class="w-14 h-14 bg-gradient-to-br from-yellow-500 to-amber-500 rounded-xl flex items-center justify-center mb-6">
-                        <i class="fas fa-users text-white text-xl"></i>
-                    </div>
-                    <h3 class="text-2xl font-semibold mb-4">Network Insights</h3>
-                    <p class="text-gray-400 mb-4">Track referrals and connections to maximize your networking potential</p>
-                    <a href="#" class="text-blue-400 hover:text-blue-300 font-medium flex items-center">
-                        Learn more <i class="fas fa-arrow-right ml-2"></i>
-                    </a>
-                </div>
+                
             </div>
         </div>
     </section>
@@ -239,7 +192,7 @@
             <div class="grid md:grid-cols-3 gap-8">
                 <div class="glass rounded-2xl p-8">
                     <div class="flex items-center mb-6">
-                        <img src="https://via.placeholder.com/60x60" alt="User" class="w-14 h-14 rounded-full mr-4">
+                        
                         <div>
                             <h4 class="font-semibold">Sarah Chen</h4>
                             <p class="text-gray-400 text-sm">Senior Engineer at Google</p>
@@ -257,7 +210,7 @@
                 
                 <div class="glass rounded-2xl p-8">
                     <div class="flex items-center mb-6">
-                        <img src="https://via.placeholder.com/60x60" alt="User" class="w-14 h-14 rounded-full mr-4">
+                        
                         <div>
                             <h4 class="font-semibold">Marcus Johnson</h4>
                             <p class="text-gray-400 text-sm">Product Manager at Meta</p>
@@ -275,7 +228,7 @@
                 
                 <div class="glass rounded-2xl p-8">
                     <div class="flex items-center mb-6">
-                        <img src="https://via.placeholder.com/60x60" alt="User" class="w-14 h-14 rounded-full mr-4">
+                        
                         <div>
                             <h4 class="font-semibold">Emily Rodriguez</h4>
                             <p class="text-gray-400 text-sm">Design Lead at Apple</p>
@@ -469,9 +422,7 @@
                     <a href="/register" class="bg-white text-black px-8 py-4 rounded-full text-lg font-medium hover:bg-gray-100 transition duration-300">
                        Get Started
                     </a>
-                    <a href="#contact" class="glass text-white px-8 py-4 rounded-full text-lg font-medium hover:bg-white/10 transition duration-300">
-                        Schedule a Demo
-                    </a>
+                   
                 </div>
             </div>
         </div>

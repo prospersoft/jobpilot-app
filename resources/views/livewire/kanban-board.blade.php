@@ -80,7 +80,7 @@
                                 @endif
                                 <div class="mt-2 flex justify-end">
                                     <a href="{{ route('applications.create', ['from_wishlist' => $item->id]) }}" 
-                                       class="text-blue-600 hover:text-blue-800 text-sm">
+                                       class="text-blue-600 hover:text-blue-600 text-sm font-semibold">
                                         Convert to Application →
                                     </a>
                                 </div>

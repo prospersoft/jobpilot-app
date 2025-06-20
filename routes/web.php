@@ -15,14 +15,25 @@ use App\Http\Controllers\Auth\AuthenticatedSessionController;
 use App\Livewire\KanbanBoard;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\WishlistController;
-
-
+use App\Http\Controllers\TestimonialsController;
+use App\Http\Controllers\PolicyController;
+use App\Http\Controllers\TermsController;
+use App\Http\Controllers\CookiesController;
+use App\Http\Controllers\DataController;
+use App\Http\Controllers\FaqsController;
 
 // Route::get('/', [HomeController::class, 'index']);
 Route::get('/home', [HomeController::class, 'home'])->name('home');
 Route::get('/about', [AboutController::class, 'about'])->name('about');
 Route::get('/contact', [ContactController::class, 'contact'])->name('contact');
 Route::get('/features', [FeaturesController::class, 'features'])->name('features');
+Route::get('/testimonials', [TestimonialsController::class, 'testimonials'])->name('testimonials');
+Route::get('/policy', [PolicyController::class, 'policy'])->name('policy');
+Route::get('/terms', [TermsController::class, 'terms'])->name('terms');
+Route::get('/cookies', [CookiesController::class, 'cookies'])->name('cookies');
+Route::get('/data', [DataController::class, 'data'])->name('data');
+Route::get('/faqs', [FaqsController::class, 'faqs'])->name('faqs');
+
 // Route::get('/register', [RegisterController::class, 'register'])->name('register');
 
 // Route::get('/', function () {

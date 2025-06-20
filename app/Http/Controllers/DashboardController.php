@@ -46,13 +46,6 @@ class DashboardController extends Controller
             ->where('scheduled_at', '>', now())
             ->where('scheduled_at', '<=', now()->addWeek())
             ->count();
-
-        $upcomingInterviewsList = Interview::with('application')
-            ->where('user_id', $userId)
-            ->where('scheduled_at', '>', now())
-            ->orderBy('scheduled_at')
-            ->limit(5)
-            ->get();
             
         // Get weekly data for chart
         $weeklyData = [];

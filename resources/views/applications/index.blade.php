@@ -41,7 +41,7 @@
         <div class="flex justify-between items-center">
             <h1 class="text-2xl font-bold text-neutral-900 dark:text-white">Applications</h1>
             <a href="{{ route('applications.create') }}">
-                <flux:button variant="primary" class="bg-blue-600 hover:bg-blue-700 text-white ">
+                <flux:button variant="primary" class="bg-blue-600 hover:bg-blue-700 text-white border !border-blue-600">
                     <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"></path>
                     </svg>
@@ -59,7 +59,7 @@
                     <option value="{{ $status }}" @selected(request('status') === $status)>{{ ucfirst(str_replace('_', ' ', $status)) }}</option>
                 @endforeach
             </flux:select>
-            <flux:button type="submit" variant="primary" class="bg-blue-600 hover:bg-blue-700 text-white">Filter</flux:button>
+            <flux:button type="submit" variant="primary" class="bg-blue-600 hover:bg-blue-700 text-white border !border-blue-600">Filter</flux:button>
         </form>
 
         <div class="bg-white dark:bg-neutral-900 rounded-xl shadow">

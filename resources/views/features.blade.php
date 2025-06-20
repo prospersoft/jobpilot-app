@@ -97,8 +97,8 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="grid md:grid-cols-2 gap-16 items-center mb-20">
                 <div class="fade-in">
-                    <div class="glass rounded-2xl p-1 float-animation">
-                        <img src="https://via.placeholder.com/600x400" alt="Application Dashboard" class="rounded-2xl">
+                    <div class="glass rounded-2xl">
+                        <img src="images/dash1.png" alt="Application Dashboard" class="rounded-2xl">
                     </div>
                 </div>
                 <div class="fade-in">
@@ -135,18 +135,18 @@
             <div class="grid md:grid-cols-2 gap-16 items-center">
                 <div class="fade-in md:order-2">
                     <div class="glass rounded-2xl p-1 float-animation">
-                        <img src="https://via.placeholder.com/600x400" alt="AI Assistant" class="rounded-2xl">
+                        <img src="images/wish.png  " alt="wishlist" class="rounded-2xl">
                     </div>
                 </div>
                 <div class="fade-in md:order-1">
                     <div class="inline-flex items-center px-4 py-2 rounded-full glass mb-6">
-                        <span class="text-sm text-purple-400">🤖 AI Powered</span>
+                        <span class="text-sm text-purple-400">⭐ Wishlists</span>
                     </div>
-                    <h2 class="text-4xl font-bold mb-6">Intelligent Resume Optimizer</h2>
+                    <h2 class="text-4xl font-bold mb-6">Create Your Wishlist</h2>
                     <p class="text-gray-400 text-lg leading-relaxed mb-8">
-                        Our AI analyzes your resume against job descriptions and provides specific recommendations to increase your chances of landing interviews.
+                        Add companies to your wishlist and never miss an opportunity
                     </p>
-                    <div class="space-y-4">
+                    <!-- <div class="space-y-4">
                         <div class="flex items-center">
                             <div class="w-12 h-12 bg-gradient-to-br from-purple-500 to-pink-500 rounded-xl flex items-center justify-center mr-4">
                                 <i class="fas fa-search text-white"></i>
@@ -165,7 +165,7 @@
                                 <p class="text-gray-400 text-sm">Automatically optimize for relevant keywords and skills</p>
                             </div>
                         </div>
-                    </div>
+                    </div> -->
                 </div>
             </div>
         </div>

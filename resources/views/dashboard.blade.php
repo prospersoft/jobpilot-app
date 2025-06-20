@@ -125,11 +125,11 @@
                     </div>
 
                     <!-- Recent Applications -->
-                    <div class="flex-1 min-h-0"> <!-- Add flex-1 and min-h-0 to ensure proper height calculation -->
-                        <div class="flex items-center justify-between mb-4">
+                    <div class="flex-1 min-h-0 "> <!-- Add flex-1 and min-h-0 to ensure proper height calculation -->
+                        <div class="flex items-center justify-between mb-4 ">
                             <h3 class="text-lg font-semibold text-neutral-900 dark:text-white">Recent Applications</h3>
                             <a href="{{ route('applications.index') }}">
-                                <flux:button  class="text-sm !bg-blue-600 hover:!bg-blue-700 text-white">
+                                <flux:button  class="text-sm !bg-blue-600 hover:!bg-blue-700 text-white border !border-blue-600">
                                     View all
                                 </flux:button>
                             </a>
@@ -142,9 +142,9 @@
                             @forelse($recentApplications ?? [] as $application)
                                 <div class="flex items-center justify-between p-4 bg-neutral-50 dark:bg-neutral-800 rounded-lg mb-3">
                                     <div class="flex items-center space-x-4">
-                                        <div class="w-10 h-10 bg-gradient-to-br from-blue-500 to-purple-600 rounded-lg flex items-center justify-center">
-                                            <span class="text-white font-semibold text-sm">{{ substr($application->company_name ?: ($application->job_title ?: 'C'), 0, 1) }}</span>
-                                        </div>
+                                        <flux:avatar name="{{ $application->company_name }}" />
+                                        
+
                                         <div>
                                             <h4 class="font-medium text-neutral-900 dark:text-white">{{ $application->job_title ?? 'Job Title' }}</h4>
                                             <p class="text-sm text-neutral-600 dark:text-neutral-400">{{ $application->company_name ?: 'Company Not Specified' }}</p>

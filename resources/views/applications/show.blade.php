@@ -64,7 +64,7 @@
                                 </div>
                                 <div class="flex items-center space-x-2">
                                     <a href="{{ route('applications.documents.download', $document) }}">
-                                        <flux:button variant="primary" class="text-xs bg-blue-600 hover:bg-blue-700 text-white">
+                                        <flux:button variant="primary" class="text-xs bg-blue-600 hover:bg-blue-700 text-white border !border-blue-600">
                                             <i class="fa fa-download"></i>
                                             Download
                                         </flux:button>
