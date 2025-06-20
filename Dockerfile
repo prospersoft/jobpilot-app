@@ -1,4 +1,5 @@
-FROM php:8.3-fpm
+# FROM php:8.3-fpm
+FROM php:8.3-cli
 
 # Install system dependencies
 RUN apt-get update && apt-get install -y \
@@ -17,5 +18,7 @@ RUN composer install --no-interaction --prefer-dist --optimize-autoloader
 # Permissions
 RUN chown -R www-data:www-data /var/www
 
-EXPOSE 9000
-CMD ["php-fpm"]
+# EXPOSE 9000
+# CMD ["php-fpm"]
+EXPOSE $PORT
+CMD php -S 0.0.0.0:$PORT -t public
