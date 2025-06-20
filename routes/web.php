@@ -3,7 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use Livewire\Volt\Volt;
 
-use Illuminate\Support\Facades\Artisan;
+// use Illuminate\Support\Facades\Artisan;
 
 
 
@@ -127,9 +127,9 @@ Route::middleware(['auth', 'admin'])->group(function () {
     Route::delete('/dashboard/users/{user}', [UserController::class, 'destroy'])->name('users.destroy');
 });
 
-Route::get('/run-migrate', function () {
-    Artisan::call('migrate', ['--force' => true]);
-    return 'Migration complete.';
-});
+// Route::get('/run-migrate', function () {
+//     Artisan::call('migrate', ['--force' => true]);
+//     return 'Migration complete.';
+// });
 
 require __DIR__.'/auth.php';
