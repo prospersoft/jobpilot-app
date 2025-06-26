@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
-@section('title', 'Cookies Policy- JobPilot')
+@section('title', 'Cookies Policy- JobProfi
+')
 
 @section('content')
 
@@ -16,7 +17,7 @@
         <div class="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
            <div class="text-center">
                 <div class="inline-flex items-center px-4 py-2 rounded-full glass mb-8 slide-in">
-                    <span class="text-sm text-gray-300">🍪 Sweet Connections</span>
+                    <span class="text-sm text-gray-300"><i class="fa-solid fa-cookie"></i> Sweet Connections</span>
                 </div>
                 <h1 class="text-5xl md:text-7xl font-bold mb-6 slide-in">
                     Match Cookie

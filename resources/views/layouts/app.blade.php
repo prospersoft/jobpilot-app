@@ -3,9 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>JobPilot - Intelligent Career Management Platform</title>
+    <title>JobProfi - Intelligent Career Management Platform</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="icon" href="/jp.png" sizes="any">
+    <link rel="icon" href="/jp.png" type="image/svg+xml">
+    <link rel="favicon" href="/jp.png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="preload" href="{{ asset('css/app.css') }}" as="style" onload="this.onload=null;this.rel='stylesheet'">
     <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
     <style>
         /* Custom animations and glassmorphism */
@@ -136,16 +140,17 @@
 <body class="font-sans antialiased bg-black text-white overflow-x-hidden scroll-smooth" x-data="{ mobileMenuOpen: false }">
     
     <!-- Navigation -->
-    <nav class="fixed w-full top-0 z-50 glass">
+    <nav class="fixed w-full top-0 z-50 backdrop-blur-md bg-white/80 dark:bg-neutral-900/80 border border-neutral-200 dark:border-neutral-700 shadow-2xl rounded-xl">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center h-20">
                 <!-- Logo -->
                 <div class="flex items-center">
-                    <div class="w-10 h-10 bg-gradient-to-br from-blue-500 to-red-500 rounded-xl flex items-center justify-center mr-3">
-                        <i class="fas fa-rocket text-black"></i>
+                    <div class="">
+                        <img src="/images/jp.png" alt="JobProfi Logo" class="w-10 h-10">
+                        <!-- <i class="fas fa-rocket text-black"></i> -->
                     </div>
-                    <span class="text-2xl font-bold font-mono bg-gradient-to-r from-blue-500 to-red-500 bg-clip-text text-transparent">
-                        JOBPILOT
+                    <span class="text-2xl font-bold font-mono text-white bg-clip-text text-transparent">
+                        JOBPROFI
                     </span>
                 </div>
                 
@@ -222,11 +227,12 @@
                 <!-- Brand Column -->
                 <div class="lg:col-span-2 ">
                    <div class="flex items-center">
-                    <div class="w-10 h-10 bg-gradient-to-br from-blue-500 to-red-500 rounded-xl flex items-center justify-center mr-3">
-                        <i class="fas fa-rocket text-black"></i>
+                    <div class="">
+                        <img src="/images/jp.png" alt="JobProfi Logo" class="w-10 h-10">
+                        <!-- <i class="fas fa-rocket text-black"></i> -->
                     </div>
-                    <span class="text-2xl font-bold font-mono bg-gradient-to-r from-blue-500 to-red-500 bg-clip-text text-transparent">
-                        JOBPILOT
+                    <span class="text-2xl font-bold font-mono text-white bg-clip-text text-transparent">
+                        JOBPROFI
                     </span>
                 </div>
                     <p class="text-gray-400 mt-4 mb-6 max-w-sm leading-relaxed">
@@ -304,7 +310,7 @@
             <div class="border-t border-gray-800 pt-6">
                 <div class="flex flex-col sm:flex-row justify-between items-center text-sm">
                     <div class="text-gray-400 mb-4 sm:mb-0">
-                        © 2025 JobPilot. All rights reserved.
+                        © 2025 JobProfi. All rights reserved.
                     </div>
                     
                 </div>
@@ -426,8 +432,9 @@
         class="fixed bottom-6 left-0 right-0 z-50 flex justify-center pointer-events-none">
         <div class="backdrop-blur-md bg-white/80 dark:bg-neutral-900/80 border border-neutral-200 dark:border-neutral-700 shadow-2xl rounded-2xl px-6 py-4 flex flex-col sm:flex-row items-center gap-4 max-w-xl w-full mx-4 pointer-events-auto animate-fade-in-up">
             <span class="flex-1 text-sm text-neutral-800 dark:text-neutral-200">
-                🍪 We use cookies to improve your experience. By using our site, you accept our 
-                <a href="/privacy" class="underline text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-300 transition">Privacy Policy</a>.
+                <i class="fa-solid fa-cookie"></i>
+                We use cookies to improve your experience. By using our site, you accept our
+                <a href="/cookies" class="underline text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-300 transition">Cookie Policy</a>.
             </span>
             <div class="flex gap-2">
                 <flux:button @click="localStorage.setItem('cookieAccepted', '1'); showCookie = false" 
@@ -450,6 +457,12 @@
             }
         </style>
     </div>
+
+      <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            document.body.style.visibility = 'visible';
+        });
+    </script>
 </body>
 </html>
 

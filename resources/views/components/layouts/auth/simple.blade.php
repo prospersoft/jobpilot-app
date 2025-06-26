@@ -7,19 +7,21 @@
         <div class="bg-background flex min-h-svh flex-col items-center justify-center gap-6 p-6 md:p-10">
             <div class="flex w-full max-w-sm flex-col gap-2">
                 <a href="{{ route('home') }}" class="flex flex-col items-center gap-2 font-medium" wire:navigate>
-                    <span class="w-10 h-10 bg-gradient-to-br from-blue-500 to-red-500 rounded-xl flex items-center justify-center mr-3 mb-1">
-                        <i class="fas fa-rocket text-black"></i>
-                    </span>
-                    <span class="text-2xl font-bold font-mono bg-gradient-to-r from-blue-500 to-red-500 bg-clip-text text-transparent">
-                        JobPilot
-                    </span>
-                    <span class="sr-only">{{ config('app.name', 'Laravel') }}</span>
-                </a>
-                <div class="flex flex-col gap-6">
-                    {{ $slot }}
+                    <div class="">
+                        <img src="/images/jp.png" alt="JobProfi Logo" class="w-10 h-10">
+                        <!-- <i class="fas fa-rocket text-black"></i> -->
+                    </div>
+                    <!-- <span class="text-2xl font-bold font-mono text-blue-600 bg-clip-text text-transparent">
+                        JOBPROFI
+                    </span> -->
                 </div>
+                <span class="sr-only">{{ config('app.name', 'JobProfi') }}</span>
+            </a>
+            <div class="flex flex-col gap-6">
+                {{ $slot }}
             </div>
         </div>
-        @fluxScripts
-    </body>
+    </div>
+    @fluxScripts
+</body>
 </html>

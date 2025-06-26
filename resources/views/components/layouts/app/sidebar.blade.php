@@ -2,18 +2,36 @@
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}" class="dark">
     <head>
         @include('partials.head')
+
+        <style>
+            @layer utilities {
+                .custom-scrollbar {
+                    @apply max-h-[400px] overflow-y-auto !important;
+                }
+                .custom-scrollbar::-webkit-scrollbar {
+                    @apply w-2 !important;
+                }
+                .custom-scrollbar::-webkit-scrollbar-thumb {
+                    @apply bg-gray-700 rounded-full !important;
+                }
+                .custom-scrollbar::-webkit-scrollbar-track {
+                    @apply bg-gray-800 !important;
+                }
+            }
+        </style>
     </head>
     <body class="min-h-screen bg-white dark:bg-zinc-800">
         <flux:sidebar sticky stashable class="border-e border-zinc-200 bg-zinc-50 dark:border-zinc-700 dark:bg-zinc-900">
             <flux:sidebar.toggle class="lg:hidden" icon="x-mark" />
 
             <a href="{{ route('dashboard') }}" class="me-5 flex items-center space-x-2 rtl:space-x-reverse" wire:navigate>
-                <div class="w-10 h-10 bg-gradient-to-br from-blue-500 to-red-500 rounded-xl flex items-center justify-center mr-3">
-                    <i class="fas fa-rocket text-black"></i>
-                </div>
-                <span class="text-2xl font-bold font-mono bg-gradient-to-r from-blue-500 to-red-500 bg-clip-text text-transparent">
-                    JOBPILOT
-                </span>
+                <div class="">
+                        <img src="/images/jp.png" alt="JobProfi Logo" class="w-10 h-10">
+                        <!-- <i class="fas fa-rocket text-black"></i> -->
+                    </div>
+                    <span class="text-2xl font-bold font-mono text-white bg-clip-text text-transparent">
+                        JOBPROFI
+                    </span>
             </a>
 
             <flux:navlist variant="outline">
@@ -83,7 +101,7 @@
             </flux:navlist>
 
             <!-- Add the follow-ups section here -->
-            <div class="px-4 mt-6 h-[calc(100vh-24rem)] overflow-y-auto">
+            <div class="px-4 mt-6 h-[calc(100vh-24rem)] overflow-y-auto custom-scrollbar">
                 <flux:navlist.group :heading="__('Follow-ups')" class="grid">
                     <div class="space-y-3">
                         @forelse($pendingFollowUps ?? [] as $followUp)

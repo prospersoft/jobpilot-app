@@ -44,6 +44,16 @@
                     </dd>
                 </div>
 
+                 <div>
+                    <dt class="text-sm font-medium text-gray-500 dark:text-gray-400">Job Type</dt>
+                    <dd class="mt-1 text-lg text-gray-900 dark:text-white">{{ $application->job_type }}</dd>
+                </div>
+
+                <div>
+                    <dt class="text-sm font-medium text-gray-500 dark:text-gray-400">Category</dt>
+                    <dd class="mt-1 text-lg text-gray-900 dark:text-white">{{ $application->category }}</dd>
+                </div>
+
                 <div>
                     <dt class="text-sm font-medium text-gray-500 dark:text-gray-400">Applied Date</dt>
                     <dd class="mt-1 text-lg text-gray-900 dark:text-white">{{ $application->applied_date->format('M j, Y') }}</dd>

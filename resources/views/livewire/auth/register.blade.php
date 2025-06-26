@@ -43,6 +43,16 @@ new #[Layout('components.layouts.auth')] class extends Component {
     <!-- Session Status -->
     <x-auth-session-status class="text-center" :status="session('status')" />
 
+    <div class="flex flex-col gap-4">
+        <a href="{{ route('auth.linkedin') }}" class="flex items-center justify-center gap-2 px-4 py-2 rounded-lg border border-[#0077B5] bg-[#0077B5] text-white font-semibold hover:bg-[#005983] transition">
+            <i class="fab fa-linkedin text-xl"></i> Continue with LinkedIn
+        </a>
+    </div>
+
+    <div class="flex items-center justify-center text-sm text-zinc-600 dark:text-zinc-400">
+        <span class="mx-2">or</span>
+    </div>
+
     <form wire:submit="register" class="flex flex-col gap-6">
         <!-- Name -->
         <flux:input
@@ -104,6 +114,8 @@ new #[Layout('components.layouts.auth')] class extends Component {
             </flux:button>
         </div>
     </form>
+
+    
 
     <div class="space-x-1 rtl:space-x-reverse text-center text-sm text-zinc-600 dark:text-zinc-400">
         {{ __('Already have an account?') }}

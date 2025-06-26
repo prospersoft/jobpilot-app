@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
-@section('title', 'Features - JobPilot')
+@section('title', 'Features - JobProfi
+')
 
 @section('content')
     <!-- Hero Section -->
@@ -16,14 +17,15 @@
         <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
             <div class="text-center">
                 <div class="inline-flex items-center px-4 py-2 rounded-full glass mb-8 slide-in">
-                    <span class="text-sm text-gray-300">🚀 Powerful Features</span>
+                    <span class="text-sm text-gray-300"><i class="fa-solid fa-rocket"></i> Powerful Features</span>
                 </div>
                 <h1 class="text-5xl md:text-7xl font-bold mb-6 slide-in">
                     Everything You Need
                     <span class="block gradient-text">To Land Your Dream Job</span>
                 </h1>
                 <p class="text-xl text-gray-400 mb-12 max-w-3xl mx-auto slide-in">
-                    From tracking applications to setting follow-ups, JobPilot helps you manage every step of your career search with confidence.
+                    From tracking applications to setting follow-ups, JobProfi
+ helps you manage every step of your career search with confidence.
                 </p>
                 <div class="flex flex-col sm:flex-row gap-4 justify-center slide-in">
                     <a href="/register" class="group bg-white text-black px-8 py-4 rounded-full text-lg font-medium hover:bg-gray-100 transition duration-300 flex items-center justify-center">
@@ -286,7 +288,8 @@
     <section class="py-20 relative">
         <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-16 fade-in">
-                <h2 class="text-4xl md:text-5xl font-bold mb-4">Why Choose JobPilot?</h2>
+                <h2 class="text-4xl md:text-5xl font-bold mb-4">Why Choose JobProfi
+?</h2>
                 <p class="text-xl text-gray-400">See how we compare to traditional methods</p>
             </div>
             
@@ -298,7 +301,8 @@
                                 <th class="text-left py-4 px-6 text-gray-300">Feature</th>
                                 <th class="text-center py-4 px-6 text-gray-300">Manual Tracking</th>
                                 <th class="text-center py-4 px-6 text-gray-300">Other Tools</th>
-                                <th class="text-center py-4 px-6 gradient-text font-bold">JobPilot</th>
+                                <th class="text-center py-4 px-6 gradient-text font-bold">JobProfi
+</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -345,7 +349,8 @@
             <div class="glass rounded-3xl p-12 fade-in">
                 <h2 class="text-4xl md:text-5xl font-bold mb-6">Ready to Transform Your Job Search?</h2>
                 <p class="text-xl text-gray-400 mb-8">
-                    Join thousands of professionals who've accelerated their careers with JobPilot's powerful features.
+                    Join thousands of professionals who've accelerated their careers with JobProfi
+'s powerful features.
                 </p>
                 <div class="flex flex-col sm:flex-row gap-4 justify-center">
                     <a href="/register" class="group bg-white text-black px-8 py-4 rounded-full text-lg font-medium hover:bg-gray-100 transition duration-300 flex items-center justify-center">

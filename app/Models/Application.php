@@ -35,7 +35,9 @@ class Application extends Model
         'location',
         'contact_name',
         'contact_email',
-        'notes'
+        'notes',
+        'job_type',
+        'category'
     ];
 
     protected $casts = [

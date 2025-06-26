@@ -11,11 +11,13 @@
     "require": {
         "php": "^8.2",
         "laravel/framework": "^12.0",
+        "laravel/socialite": "^5.21",
         "laravel/tinker": "^2.10.1",
         "livewire/flux": "^2.1.1",
         "livewire/livewire": "^3.6",
         "livewire/volt": "^1.7",
         "robsontenorio/mary": "^2.4",
+        "socialiteproviders/linkedin": "^5.0",
         "wire-elements/modal": "^3.0"
     },
     "require-dev": {

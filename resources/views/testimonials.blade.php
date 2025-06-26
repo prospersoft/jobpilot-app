@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
-@section('title', 'Features - JobPilot')
+@section('title', 'Features - JobProfi
+')
 
 @section('content')
 
@@ -465,7 +466,7 @@
         <div class="hero-bg"></div>
         <div class="hero-content">
             <div class="hero-badge slide-in">
-                <span>⭐ Trusted by 10,000+ Professionals</span>
+                <span><i class="fa-solid fa-star-half-stroke"></i> Trusted by 10,000+ Professionals</span>
             </div>
             
 
@@ -475,7 +476,8 @@
                     <span class="block text-blue-600">Our Amazing Clients.</span>
                 </h1>
                 <p class="text-xl text-gray-400 mb-12 max-w-3xl mx-auto slide-in">
-                   Discover how professionals like you have transformed their careers with JobPilot. Real stories, real results, real impact on their professional journey.</b>
+                   Discover how professionals like you have transformed their careers with JobProfi
+. Real stories, real results, real impact on their professional journey.</b>
                 </p>
         </div>
     </section>
@@ -519,7 +521,8 @@
                         <i class="fas fa-star star"></i>
                     </div>
                     <p class="testimonial-text">
-                        "JobPilot completely transformed my job search. What used to take me months now takes weeks. The AI insights helped me tailor my applications perfectly, and I landed my dream job with a 40% salary increase!"
+                        "JobProfi
+ completely transformed my job search. What used to take me months now takes weeks. The AI insights helped me tailor my applications perfectly, and I landed my dream job with a 40% salary increase!"
                     </p>
                     <flux:avatar name="Sarah Mitchell" class="w-12 h-12 rounded-full text-center" />
                     <div class="author-info text-start">
@@ -589,7 +592,8 @@
                         <i class="fas fa-star star"></i>
                     </div>
                     <p class="testimonial-text">
-                        "JobPilot's interview preparation tools were game-changing. The AI-powered mock interviews helped me practice for specific companies. Landed my first FAANG role!"
+                        "JobProfi
+'s interview preparation tools were game-changing. The AI-powered mock interviews helped me practice for specific companies. Landed my first FAANG role!"
                     </p>
                     <div class="testimonial-author">
                        <flux:avatar name="David Park" class="w-12 h-12 rounded-full" />
@@ -609,7 +613,8 @@
                         <i class="fas fa-star star"></i>
                     </div>
                     <p class="testimonial-text">
-                        "As a career changer, I was overwhelmed by the job search process. JobPilot's analytics showed me exactly what was working and what wasn't. Pure gold!"
+                        "As a career changer, I was overwhelmed by the job search process. JobProfi
+'s analytics showed me exactly what was working and what wasn't. Pure gold!"
                     </p>
                     <div class="testimonial-author">
                         <flux:avatar name="Lisa Rodriguez" class="w-12 h-12 rounded-full" />
@@ -649,7 +654,8 @@
                         <i class="fas fa-star star"></i>
                     </div>
                     <p class="testimonial-text">
-                        "The salary negotiation insights were invaluable. I learned my market value and negotiated a 25% salary increase. JobPilot paid for itself 100x over!"
+                        "The salary negotiation insights were invaluable. I learned my market value and negotiated a 25% salary increase. JobProfi
+ paid for itself 100x over!"
                     </p>
                     <div class="testimonial-author">
                         <flux:avatar name="Amanda Taylor" class="w-12 h-12 rounded-full" />
@@ -692,7 +698,8 @@
                     </div>
                     <div class="video-info">
                         <h3>Career Pivot Success</h3>
-                        <p>How Rachel successfully transitioned from finance to tech using JobPilot</p>
+                        <p>How Rachel successfully transitioned from finance to tech using JobProfi
+</p>
                     </div>
                 </div>
 
@@ -717,7 +724,8 @@
             <div class="cta-section fade-in">
                 <h2 class="cta-title">Ready to Write Your Success Story?</h2>
                 <p class="cta-subtitle">
-                    Join thousands of professionals who've transformed their careers with JobPilot. Your dream job is just one step away.
+                    Join thousands of professionals who've transformed their careers with JobProfi
+. Your dream job is just one step away.
                 </p>
                 <div class="cta-buttons">
                     <a href="#" class="start">

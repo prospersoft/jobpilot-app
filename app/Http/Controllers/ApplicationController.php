@@ -136,11 +136,17 @@ class ApplicationController extends Controller
                 'follow_up_date' => 'nullable|date|after_or_equal:today',
                 'follow_up_notes' => 'nullable|string|max:1000',
                 'notes' => 'nullable|string|max:1000',
+                'job_type' => 'nullable|string|max:255',
+                'category' => 'nullable|string|max:255',
             ], [
                 'company_name.required' => 'Please enter the company name',
                 'job_title.required' => 'Please enter the job title',
                 'status.in' => 'Please select a valid application status',
                 'follow_up_date' => 'nullable|date|date_format:Y-m-d|after_or_equal:today',
+                'follow_up_notes.max' => 'Follow-up notes cannot exceed 1000 characters',
+                'notes.max' => 'Notes cannot exceed 1000 characters',
+                'job_type.max' => 'Job type cannot exceed 255 characters',
+                'category.max' => 'Category cannot exceed 255 characters',
                 // Add more custom messages as needed
             ]);
 
@@ -325,6 +331,10 @@ class ApplicationController extends Controller
             'tags' => 'nullable|string',
             'follow_up_date' => 'nullable|date|after_or_equal:today',
             'follow_up_notes' => 'nullable|string|max:500',
+            'notes' => 'nullable|string|max:1000',
+            'job_type' => 'nullable|string|max:255',
+            'category' => 'nullable|string|max:255',
+            'user_id' => 'exists:users,id', // Ensure user exists
         ];
     }
 

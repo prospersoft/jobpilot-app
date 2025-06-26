@@ -21,6 +21,7 @@ use App\Http\Controllers\TermsController;
 use App\Http\Controllers\CookiesController;
 use App\Http\Controllers\DataController;
 use App\Http\Controllers\FaqsController;
+use App\Http\Controllers\Auth\LinkedInController;
 
 // Route::get('/', [HomeController::class, 'index']);
 Route::get('/home', [HomeController::class, 'home'])->name('home');
@@ -122,5 +123,9 @@ Route::middleware(['auth', 'admin'])->group(function () {
     Route::patch('/dashboard/users/{user}/role', [UserController::class, 'updateRole'])->name('users.updateRole');
     Route::delete('/dashboard/users/{user}', [UserController::class, 'destroy'])->name('users.destroy');
 });
+
+// LinkedIn OAuth
+Route::get('auth/linkedin', [LinkedInController::class, 'redirectToLinkedIn'])->name('auth.linkedin');
+Route::get('auth/linkedin/callback', [LinkedInController::class, 'handleLinkedInCallback']);
 
 require __DIR__.'/auth.php';

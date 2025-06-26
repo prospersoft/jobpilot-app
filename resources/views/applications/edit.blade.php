@@ -105,6 +105,21 @@
                     </div>
                 </div>
 
+                <!-- Job Type and Category -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <!-- Job Type -->
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 dark:text-gray-200">Job Type</label>
+                        <flux:input type="text" name="job_type" placeholder="e.g. Remote, Full-time" value="{{ old('job_type', $application->job_type) }}" class="mt-1 w-full" />
+                    </div>
+
+                    <!-- Category -->
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 dark:text-gray-200">Category</label>
+                        <flux:input type="text" name="category" placeholder="e.g. IT, Health, Business" value="{{ old('category', $application->category) }}" class="mt-1 w-full" />
+                    </div>
+                </div>
+
                 <!-- Job Description -->
                 <div>
                     <label class="block text-sm font-medium text-gray-700 dark:text-gray-200">Job Description</label>

@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
-@section('title', 'Home - JobPilot')
+@section('title', 'Home - JobProfi
+')
 
 @section('content')
     <!-- Hero Section -->
@@ -15,7 +16,7 @@
         <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
             <div class="text-center">
                 <div class="inline-flex items-center px-4 py-2 rounded-full glass mb-8 slide-in">
-                    <span class="text-sm text-gray-300">🔔 Never lose track of a job or interview again</span>
+                    <span class="text-sm text-gray-300"><i class="fa-solid fa-bell text-blue-600"></i> Never lose track of a job or interview again</span>
                 </div>
                 <h1 class="text-5xl md:text-7xl font-bold mb-6 slide-in">
                     The Modern Way to Track, 
@@ -186,7 +187,8 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-16">
                 <h2 class="text-4xl md:text-5xl font-bold mb-4">Loved by Industry Leaders</h2>
-                <p class="text-xl text-gray-400">See what professionals are saying about JobPilot</p>
+                <p class="text-xl text-gray-400">See what professionals are saying about JobProfi
+</p>
             </div>
             
             <div class="grid md:grid-cols-3 gap-8">
@@ -205,7 +207,8 @@
                         <i class="fas fa-star text-yellow-400"></i>
                         <i class="fas fa-star text-yellow-400"></i>
                     </div>
-                    <p class="text-gray-300">"JobPilot transformed how I manage my career. The AI insights helped me land my dream role at Google."</p>
+                    <p class="text-gray-300">"JobProfi
+ transformed how I manage my career. The AI insights helped me land my dream role at Google."</p>
                 </div>
                 
                 <div class="glass rounded-2xl p-8">
@@ -223,7 +226,8 @@
                         <i class="fas fa-star text-yellow-400"></i>
                         <i class="fas fa-star text-yellow-400"></i>
                     </div>
-                    <p class="text-gray-300">"The best investment I made in my career. JobPilot's analytics gave me the edge I needed."</p>
+                    <p class="text-gray-300">"The best investment I made in my career. JobProfi
+'s analytics gave me the edge I needed."</p>
                 </div>
                 
                 <div class="glass rounded-2xl p-8">
@@ -361,7 +365,8 @@
             <div class="space-y-6">
                 <div class="glass rounded-2xl overflow-hidden fade-in">
                     <button class="faq-toggle w-full px-8 py-6 text-left hover:bg-white/5 transition duration-300 flex items-center justify-between">
-                        <h3 class="text-lg font-semibold">How do I get started with JobPilot?</h3>
+                        <h3 class="text-lg font-semibold">How do I get started with JobProfi
+?</h3>
                         <i class="fas fa-chevron-down transform transition-transform duration-300"></i>
                     </button>
                     <div class="faq-content hidden px-8 pb-6">
@@ -375,7 +380,8 @@
                         <i class="fas fa-chevron-down transform transition-transform duration-300"></i>
                     </button>
                     <div class="faq-content hidden px-8 pb-6">
-                        <p class="text-gray-400">Yes! JobPilot is available on both iOS and Android. Download from the App Store or Google Play to manage your job search on the go.</p>
+                        <p class="text-gray-400">Yes! JobProfi
+ is available on both iOS and Android. Download from the App Store or Google Play to manage your job search on the go.</p>
                     </div>
                 </div>
                 
@@ -417,7 +423,8 @@
         <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <div class="glass rounded-3xl p-12">
                 <h2 class="text-4xl md:text-5xl font-bold mb-6">Ready to Transform Your Job Search?</h2>
-                <p class="text-xl text-gray-400 mb-8">Join 50+ professionals who've accelerated their careers with JobPilot</p>
+                <p class="text-xl text-gray-400 mb-8">Join 50+ professionals who've accelerated their careers with JobProfi
+</p>
                 <div class="flex flex-col sm:flex-row gap-4 justify-center">
                     <a href="/register" class="bg-white text-black px-8 py-4 rounded-full text-lg font-medium hover:bg-gray-100 transition duration-300">
                        Get Started

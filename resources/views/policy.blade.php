@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
-@section('title', 'Privacy Policy - JobPilot')
+@section('title', 'Privacy Policy - JobProfi
+')
 
 @section('content')
     <!-- Hero Section -->
@@ -16,7 +17,7 @@
         <div class="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
             <div class="text-center">
                 <div class="inline-flex items-center px-4 py-2 rounded-full glass mb-8 slide-in">
-                    <span class="text-sm text-gray-300">🔒 Your Privacy Matters</span>
+                    <span class="text-sm text-gray-300"><i class="fa-solid fa-file-shield"></i> Your Privacy Matters</span>
                 </div>
                 <h1 class="text-5xl md:text-7xl font-bold mb-6 slide-in">
                     Privacy Policy
@@ -108,7 +109,8 @@
                             <i class="fas fa-envelope text-white"></i>
                         </div>
                         <h4 class="font-semibold text-white mb-2">Email Support</h4>
-                        <p class="text-gray-300 text-sm">privacy@jobpilot.com</p>
+                        <p class="text-gray-300 text-sm">privacy@JobProfi
+.com</p>
                     </div>
                     <div class="text-center">
                         <div class="w-12 h-12 bg-gradient-to-br from-green-500 to-emerald-500 rounded-xl flex items-center justify-center mx-auto mb-3">

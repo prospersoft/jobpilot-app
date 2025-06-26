@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'About Us - JobPilot')
+@section('title', 'About Us - JobProfi')
 
 @section('content')
     <!-- Hero Section -->
@@ -17,14 +17,14 @@
         <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
             <div class="text-center">
                 <div class="inline-flex items-center px-4 py-2 rounded-full glass mb-8 slide-in">
-                    <span class="text-sm text-gray-300">🌟 Our Story</span>
+                    <span class="text-sm text-gray-300"><i class="fa-solid fa-dna"></i> Our Story</span>
                 </div>
                 <h1 class="text-5xl md:text-7xl font-bold mb-6 slide-in">
                     The System You Wish You Had When You 
                     <span class="block gradient-text">Started Applying.</span>
                 </h1>
                 <p class="text-xl text-gray-400 mb-12 max-w-3xl mx-auto slide-in">
-                    We created JobPilot because we’ve been there lost in spreadsheets, ghosted after interviews, and wondering what to do next. Our mission is to give every job seeker clarity, control, and confidence through tools that organize, track, and transform your career journey
+                    We created JobProfi because we’ve been there lost in spreadsheets, ghosted after interviews, and wondering what to do next. Our mission is to give every job seeker clarity, control, and confidence through tools that organize, track, and transform your career journey
                 </p>
             </div>
         </div>
@@ -66,7 +66,7 @@
         <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-16 fade-in">
                 <h2 class="text-4xl md:text-5xl font-bold mb-4">Our Story</h2>
-                <p class="text-xl text-gray-400">How JobPilot came to life</p>
+                <p class="text-xl text-gray-400">How JobProfi came to life</p>
             </div>
             
             <div class="glass rounded-3xl p-12 fade-in">
@@ -75,10 +75,10 @@
                         <h3 class="text-3xl font-bold mb-6">From Frustration to Innovation</h3>
                         <div class="space-y-6 text-gray-400 text-lg leading-relaxed">
                             <p>
-                                JobPilot was born out of personal frustration. Our founder, Prosper Amutah, didn’t set out to build a startup. He set out to land a job.
+                                JobProfi was born out of personal frustration. Our founder, Prosper Amutah, didn’t set out to build a startup. He set out to land a job.
                                 After sending out dozens of applications with no responses and trying to track everything using messy spreadsheets and sticky notes, Prosper realized the job search wasn’t just hard, it was broken.
 
-                                He knew he wasn’t alone. Like many others, he was applying blindly, forgetting where he applied, and missing follow-ups — not because he wasn’t qualified, but because the process lacked structure. And that’s when the idea for JobPilot was born.
+                                He knew he wasn’t alone. Like many others, he was applying blindly, forgetting where he applied, and missing follow-ups — not because he wasn’t qualified, but because the process lacked structure. And that’s when the idea for JobProfi was born.
                             </p>
                             <p>
                                 After countless spreadsheets, missed opportunities, and sleepless nights, he realized there had to be a better way. He envisioned a platform that would bring order to the chaos, intelligence to the process, and confidence to job seekers everywhere.
@@ -89,8 +89,8 @@
                             </p>
                         </div>
                     </div>
-                    <div class="glass rounded-2xl p-1 float-animation">
-                        <img src="https://via.placeholder.com/600x400" alt="Founders Story" class="rounded-2xl">
+                    <div class="rounded  float-animation">
+                        <img src="images/founder2.jpeg" alt="Founders Story" class="rounded-2xl">
                     </div>
                 </div>
             </div>
@@ -145,23 +145,25 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-16 fade-in">
                 <h2 class="text-4xl md:text-5xl font-bold mb-4">Meet Our Team</h2>
-                <p class="text-xl text-gray-400">The brilliant minds behind JobPilot</p>
+                <p class="text-xl text-gray-400">The brilliant minds behind JobProfi</p>
             </div>
             
             <div class="grid md:grid-cols-3 gap-8">
                 <div class="glass rounded-2xl p-8 text-center hover:bg-white/5 hover:scale-105 transition-all duration-500 fade-in">
                     <div class="relative inline-block mb-6">
-                        <img src="https://via.placeholder.com/150x150" alt="Sarah Kim" class="w-24 h-24 rounded-full mx-auto">
-                        <div class="absolute -bottom-2 -right-2 w-8 h-8 bg-gradient-to-br from-blue-500 to-purple-500 rounded-full flex items-center justify-center">
-                            <i class="fab fa-linkedin text-white text-sm"></i>
+                        <img src="images/founder2.jpeg" alt="Sarah Kim" class="w-24 h-24 rounded-full mx-auto">
+                        <div class="absolute -bottom-2 -right-2 w-8 h-8  rounded-full flex items-center justify-center">
+                            <a href="https://linkedin.com/in/prosper-amutah-667530241" target="_blank" rel="noopener noreferrer">
+                                <i class="fab fa-linkedin text-white text-sm"></i></a>
+
                         </div>
                     </div>
-                    <h3 class="text-xl font-semibold mb-2">Sarah Kim</h3>
-                    <p class="text-blue-400 mb-4">Co-Founder & CEO</p>
+                    <h3 class="text-xl font-semibold mb-2">Prosper Amutah</h3>
+                    <p class="text-blue-400 mb-4">Founder, CEO & CTO</p>
                     <p class="text-gray-400 text-sm">Former Google PM with 10+ years in tech. Passionate about democratizing career opportunities through AI.</p>
                 </div>
                 
-                <div class="glass rounded-2xl p-8 text-center hover:bg-white/5 hover:scale-105 transition-all duration-500 fade-in">
+                <!-- <div class="glass rounded-2xl p-8 text-center hover:bg-white/5 hover:scale-105 transition-all duration-500 fade-in">
                     <div class="relative inline-block mb-6">
                         <img src="https://via.placeholder.com/150x150" alt="Marcus Chen" class="w-24 h-24 rounded-full mx-auto">
                         <div class="absolute -bottom-2 -right-2 w-8 h-8 bg-gradient-to-br from-green-500 to-emerald-500 rounded-full flex items-center justify-center">
@@ -183,7 +185,7 @@
                     <h3 class="text-xl font-semibold mb-2">Emma Rodriguez</h3>
                     <p class="text-pink-400 mb-4">Head of Design</p>
                     <p class="text-gray-400 text-sm">Award-winning UX designer from Apple. Creates intuitive experiences that users love.</p>
-                </div>
+                </div> -->
             </div>
         </div>
     </section>
@@ -208,7 +210,7 @@
                                 <h3 class="text-xl font-semibold">The Idea is Born</h3>
                                 <span class="text-blue-400 text-sm">January 2025</span>
                             </div>
-                            <p class="text-gray-400">Inspired by personal job search struggles, our founders sketched out the first concepts for JobPilot at a local coffee shop.</p>
+                            <p class="text-gray-400">Inspired by personal job search struggles, our founders sketched out the first concepts for JobProfi at a local coffee shop.</p>
                         </div>
                     </div>
                     
@@ -230,7 +232,7 @@
                                 <h3 class="text-xl font-semibold">Public Beta</h3>
                                 <span class="text-green-400 text-sm">August 2025</span>
                             </div>
-                            <p class="text-gray-400">JobPilot opened to the public, welcoming hundreds of users who helped us shape new features and improve the experience.</p>
+                            <p class="text-gray-400">JobProfi opened to the public, welcoming hundreds of users who helped us shape new features and improve the experience.</p>
                         </div>
                     </div> -->
                     
@@ -241,7 +243,7 @@
                                 <h3 class="text-xl font-semibold">First 10,000 Users</h3>
                                 <span class="text-orange-400 text-sm">December 2025</span>
                             </div>
-                            <p class="text-gray-400">We celebrated our first major milestone as JobPilot reached 10,000 registered users, helping job seekers around the world stay organized and confident.</p>
+                            <p class="text-gray-400">We celebrated our first major milestone as JobProfi reached 10,000 registered users, helping job seekers around the world stay organized and confident.</p>
                         </div>
                     </div> -->
                     
@@ -252,7 +254,7 @@
                                 <h3 class="text-xl font-semibold">Now</h3>
                                 <span class="text-red-400 text-sm">{{ now()->format('F Y') }}</span>
                             </div>
-                            <p class="text-gray-400">JobPilot is being developed and deployed, with a growing community of professionals using it to take control of their job search journey every day.</p>
+                            <p class="text-gray-400">JobProfi is being developed and deployed, with a growing community of professionals using it to take control of their job search journey every day.</p>
                         </div>
                     </div>
                 </div>
@@ -303,7 +305,7 @@
             <div class="glass rounded-3xl p-12 fade-in">
                 <h2 class="text-4xl md:text-5xl font-bold mb-6">Join Our Mission</h2>
                 <p class="text-xl text-gray-400 mb-8">
-                    Ready to transform your career journey? Join hundreds of thousands of professionals who trust JobPilot to accelerate their success.
+                    Ready to transform your career journey? Join hundreds of thousands of professionals who trust JobProfi to accelerate their success.
                 </p>
                 <div class="flex flex-col sm:flex-row gap-4 justify-center">
                     <a href="/register" class="group bg-white text-black px-8 py-4 rounded-full text-lg font-medium hover:bg-gray-100 transition duration-300 flex items-center justify-center">

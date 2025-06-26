@@ -1,6 +1,7 @@
  @extends('layouts.app')
 
-@section('title', 'Terms - JobPilot')
+@section('title', 'Terms - JobProfi
+')
 
 @section('content')
 <section id="policy-hero" class="min-h-screen flex items-center relative pt-20">
@@ -45,16 +46,19 @@
                 <div class="prose prose-lg prose-invert max-w-none">
                     <h3 class="text-2xl font-semibold mb-4 text-white">Acceptance of Terms</h3>
                     <p class="text-gray-300 mb-6 leading-relaxed">
-                        By accessing and using JobPilot, you accept and agree to be bound by the terms and provision of this agreement. If you do not agree to abide by the above, please do not use this service.
+                        By accessing and using JobProfi
+, you accept and agree to be bound by the terms and provision of this agreement. If you do not agree to abide by the above, please do not use this service.
                     </p>
                     
                     <h3 class="text-2xl font-semibold mb-4 text-white">Use License</h3>
                     <p class="text-gray-300 mb-6 leading-relaxed">
-                        Permission is granted to temporarily access JobPilot for personal, non-commercial transitory viewing only. This is the grant of a license, not a transfer of title, and under this license you may not modify or copy the materials, use the materials for commercial purposes, or remove any copyright or proprietary notations.
+                        Permission is granted to temporarily access JobProfi
+ for personal, non-commercial transitory viewing only. This is the grant of a license, not a transfer of title, and under this license you may not modify or copy the materials, use the materials for commercial purposes, or remove any copyright or proprietary notations.
                     </p>
                     
                     <h3 class="text-2xl font-semibold mb-4 text-white">User Responsibilities</h3>
-                    <p class="text-gray-300 mb-4 leading-relaxed">As a user of JobPilot, you agree to:</p>
+                    <p class="text-gray-300 mb-4 leading-relaxed">As a user of JobProfi
+, you agree to:</p>
                     <ul class="text-gray-300 mb-6 space-y-2">
                         <li class="flex items-start"><i class="fas fa-check text-green-400 mr-3 mt-1"></i> Provide accurate and truthful information</li>
                         <li class="flex items-start"><i class="fas fa-check text-green-400 mr-3 mt-1"></i> Maintain the security of your account credentials</li>
@@ -65,7 +69,8 @@
                     
                     <h3 class="text-2xl font-semibold mb-4 text-white">Service Availability</h3>
                     <p class="text-gray-300 mb-6 leading-relaxed">
-                        While we strive to maintain continuous service availability, we cannot guarantee uninterrupted access to JobPilot. We reserve the right to modify, suspend, or discontinue the service at any time with reasonable notice.
+                        While we strive to maintain continuous service availability, we cannot guarantee uninterrupted access to JobProfi
+. We reserve the right to modify, suspend, or discontinue the service at any time with reasonable notice.
                     </p>
                 </div>
             </div>

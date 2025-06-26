@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
-@section('title', 'Data Protection - JobPilot')
+@section('title', 'Data Protection - JobProfi')
+<script src="https://cdn.tailwindcss.com"></script>
 
 @section('content')
     <!-- Hero Section -->
@@ -16,9 +17,9 @@
         <div class="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
            <div class="text-center">
                 <div class="inline-flex items-center px-4 py-2 rounded-full glass mb-8 slide-in">
-                    <span class="text-sm text-gray-300">🛡️ Data Protection</span>
+                    <span class="text-sm text-gray-300"><i class="fa-solid fa-lock"></i> Data Protection</span>
                 </div>
-                <h1 class="text-5xl md:text-7xl font-bold mb-6 slide-in">
+                <h1 class="text-5xl md:text-7xl !text-white font-bold mb-6 slide-in">
                     Data Protection
                     <span class="block gradient-text">& Privacy Policy</span>
                 </h1>

@@ -1,6 +1,8 @@
  @extends('layouts.app')
 
-@section('title', 'Faqs - JobPilot')
+@section('title', 'Faqs - JobProfi')
+
+<script src="https://cdn.tailwindcss.com"></script>
 
 @section('content')
 <section id="policy-hero" class="min-h-screen flex items-center relative pt-20">
@@ -15,9 +17,9 @@
         <div class="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
            <div class="text-center">
                 <div class="inline-flex items-center px-4 py-2 rounded-full glass mb-8 slide-in">
-                    <span class="text-sm text-gray-300">❓ Quick Answers</span>
+                    <span class="text-sm text-gray-300"><i class="fa-solid fa-circle-question"></i> Quick Answers</span>
                 </div>
-                <h1 class="text-5xl md:text-7xl font-bold mb-6 slide-in">
+                <h1 class="text-5xl md:text-7xl font-bold mb-6 slide-in !text-white">
                     FAQs
                     
                 </h1>
@@ -32,7 +34,7 @@
     </section>
 
 <!-- FAQ Section -->
-    <section class="py-20 relative" id="faq-section">
+    <section class="py-20 relative !bg-black" id="faq-section">
         <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-16 fade-in">
                 <h2 class="text-4xl md:text-5xl font-bold mb-4">Frequently Asked Questions</h2>
@@ -42,7 +44,8 @@
             <div class="space-y-6">
                 <div class="glass rounded-2xl overflow-hidden fade-in">
                     <button class="faq-toggle w-full px-8 py-6 text-left hover:bg-white/5 transition duration-300 flex items-center justify-between">
-                        <h3 class="text-lg font-semibold">How do I get started with JobPilot?</h3>
+                        <h3 class="text-lg font-semibold">How do I get started with JobProfi
+?</h3>
                         <i class="fas fa-chevron-down transform transition-transform duration-300"></i>
                     </button>
                     <div class="faq-content hidden px-8 pb-6">
@@ -92,3 +95,6 @@
             </div>
         </div>
     </section>
+
+     
+
