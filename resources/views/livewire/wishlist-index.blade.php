@@ -6,9 +6,9 @@
         </div>
     @endif
 
-    <div class="flex justify-between items-center mb-6">
+    <div class="flex justify-between items-center mb-6 ">
         <h2 class="text-2xl font-semibold  text-neutral-900 dark:text-white">My Wishlists</h2>
-        <div class="flex space-x-4">
+        <div class="flex flex-col sm:flex-row gap-2 sm:gap-4">
             @livewire('add-wishlist-form')
             <a href="{{ route('applications.board') }}" class="inline-flex items-center px-4 py-2 bg-gray-600 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-gray-700">
                 <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
