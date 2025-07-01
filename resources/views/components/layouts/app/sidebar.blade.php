@@ -86,6 +86,17 @@
                         {{ __('Interview Calendar') }}
                     </flux:navlist.item>
 
+                    <flux:navlist.item 
+                        icon="document-text" 
+                        :href="route('resume.create')" 
+                        :current="request()->routeIs('resume.create')" 
+                        class="mt-3" 
+                        wire:navigate
+                    >
+                        {{ __('Resume Builder') }}
+                    </flux:navlist.item>
+
+                    
                     @if(auth()->user() && auth()->user()->role === 'admin')
                     <flux:navlist.item 
                         icon="users" 

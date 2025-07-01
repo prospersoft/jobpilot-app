@@ -389,4 +389,10 @@ class ApplicationController extends Controller
     }
 
 
+    public function downloadPdf(\App\Models\Application $application)
+    {
+        // You may need to run: composer require barryvdh/laravel-dompdf
+        $pdf = \PDF::loadView('applications.pdf', compact('application'));
+        return $pdf->download('application_' . $application->id . '.pdf');
+    }
 }

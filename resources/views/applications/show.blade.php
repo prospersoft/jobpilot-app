@@ -13,6 +13,12 @@
                         Edit
                     </flux:button>
                 </a>
+                <a href="{{ route('applications.downloadPdf', $application) }}" target="_blank">
+                    <flux:button variant="primary" class="bg-indigo-600 hover:bg-indigo-700 text-white">
+                        <i class="fa fa-file-pdf-o"></i>
+                        Download PDF
+                    </flux:button>
+                </a>
             </div>
         </div>
 
