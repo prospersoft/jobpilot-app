@@ -29,7 +29,7 @@
                         <img src="/images/jp.png" alt="JobProfi Logo" class="w-10 h-10">
                         <!-- <i class="fas fa-rocket text-black"></i> -->
                     </div>
-                    <span class="text-2xl font-bold font-mono text-white bg-clip-text text-transparent">
+                    <span class="text-2xl font-bold font-mono text-white dark:text-white bg-clip-text text-transparent">
                         JOBPROFI
                     </span>
             </a>

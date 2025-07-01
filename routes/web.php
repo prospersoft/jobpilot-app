@@ -127,8 +127,8 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/resume/{resume}/edit', [ResumeController::class, 'edit'])->name('resume.edit');
     Route::put('/resume/{resume}', [ResumeController::class, 'update'])->name('resume.update');
     Route::delete('/resume/{resume}', [ResumeController::class, 'destroy'])->name('resume.destroy');
-    Route::delete('/resume/{resume}', [ResumeController::class, 'pdf'])->name('resume.pdf');
-    Route::get('/resume/{resume}/download', [ResumeController::class, 'download'])->name('resume.download');
+     Route::delete('/resume/{resume}', [ResumeController::class, 'destroy'])->name('resume.destroy');
+     Route::get('/resume/{resume}/download', [ResumeController::class, 'download'])->name('resume.download');
     Route::get('/resume', [ResumeController::class, 'index'])->name('resume.index');
 });
 

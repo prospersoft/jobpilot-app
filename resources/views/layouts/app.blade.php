@@ -158,7 +158,7 @@
                 <!-- Desktop Navigation -->
                 <div class="hidden lg:flex items-center space-x-8">
                     <a href="/home" class="text-gray-300 hover:text-white transition duration-300 text-sm font-medium flex items-center gap-2"><i class="fa-solid fa-house-user"></i>Home</a>
-                    <a href="/features" class="text-gray-300 hover:text-white transition duration-300 text-sm font-medium flex items-center gap-2"><i class="fa-solid fa-bolt"></i>Features</a>
+                    <a href="/features" class="text-gray-300 hover:text-white transition duration-300 text-sm font-medium flex items-center gap-2"><i class="fa fa-project-diagram"></i>Features</a>
                     <a href="/testimonials" class="text-gray-300 hover:text-white transition duration-300 text-sm font-medium flex items-center gap-2"><i class="fa-brands fa-rocketchat"></i>Testimonials</a>
                     <a href="/about" class="text-gray-300 hover:text-white transition duration-300 text-sm font-medium flex items-center gap-2"><i class="fa-solid fa-user-tie"></i>About</a>
                     <a href="/contact" class="text-gray-300 hover:text-white transition duration-300 text-sm font-medium flex items-center gap-2">

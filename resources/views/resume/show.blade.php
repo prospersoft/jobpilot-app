@@ -2,7 +2,7 @@
     <div class="max-w-3xl mx-auto py-10 px-4 bg-white text-black font-sans">
         {{-- HEADER --}}
         <div class="text-center mb-2 ">
-            <h1 class="text-3xl font-bold tracking-wide pt-4 mb-1">{{ $resume->full_name }}</h1>
+            <h1 class="text-3xl font-bold tracking-wide mb-1">{{ $resume->full_name }}</h1>
             <div class="text-sm font-medium tracking-wide">
                 {{ $resume->location }}
                 @if($resume->email) | {{ $resume->email }} @endif
@@ -191,20 +191,15 @@
             </div>
         @endif
 
-        <div class="flex flex-col sm:flex-row justify-between items-center mt-8 gap-4">
-            <div class="text-xs text-neutral-400 text-center">Resume generated on {{ now()->format('F j, Y') }}</div>
-            <flux:button type="button" onclick="window.location.href='{{ route('resume.index') }}'" class="!bg-gray-600 hover:!bg-gray-700 text-white flex items-center px-5 py-2 rounded-lg font-semibold shadow transition">
-                <svg class="h-4 w-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
-                </svg>
-                Back to Resumes
-            </flux:button>
-            <a href="{{ route('resume.pdf', $resume) }}" target="_blank" download class="inline-flex items-center px-5 py-2 rounded-lg font-semibold bg-blue-600 hover:bg-blue-700 text-white shadow transition border border-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2">
-                <svg class="h-5 w-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v12m0 0l-4-4m4 4l4-4"></path>
-                </svg>
-                Download PDF
-            </a>
-        </div>
+        <div class="text-xs text-neutral-400 mt-8 text-center">Resume generated on {{ now()->format('F j, Y') }}</div>
+    </div>
+
+     <div>
+        <flux:button type="button" onclick="window.location.href='{{ route('resume.index') }}'" class="mt-4 !bg-gray-600 hover:!bg-gray-700 text-white">
+            <svg class="h-4 w-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+            </svg>
+            Back to Resumes
+        </flux:button>
     </div>
 </x-layouts.app>
