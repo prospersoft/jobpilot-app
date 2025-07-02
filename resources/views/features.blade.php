@@ -21,7 +21,7 @@
                 </div>
                 <h1 class="text-5xl md:text-7xl font-bold mb-6 slide-in">
                     Everything You Need
-                    <span class="block gradient-text">To Land Your Dream Job</span>
+                    <span class="block text-blue-600">To Land Your Dream Job</span>
                 </h1>
                 <p class="text-xl text-gray-400 mb-12 max-w-3xl mx-auto slide-in">
                     From tracking applications to setting follow-ups, JobProfi
@@ -61,20 +61,20 @@
                     </ul>
                 </div>
                 
-                <!-- <div class="glass rounded-3xl p-8 hover:bg-white/5 hover:scale-105 transition-all duration-500 fade-in">
+                <div class="glass rounded-3xl p-8 hover:bg-white/5 hover:scale-105 transition-all duration-500 fade-in">
                     <div class="w-16 h-16 bg-gradient-to-br from-purple-500 to-violet-500 rounded-2xl flex items-center justify-center mb-6 float-animation">
-                        <i class="fas fa-robot text-white text-2xl"></i>
+                        <i class="fas fa-file-alt text-white text-2xl"></i>
                     </div>
-                    <h3 class="text-2xl font-bold mb-4">AI Career Assistant</h3>
+                    <h3 class="text-2xl font-bold mb-4">Modern Resume Builder</h3>
                     <p class="text-gray-400 text-lg leading-relaxed mb-6">
-                        Get personalized insights and recommendations powered by advanced AI. From resume optimization to interview prep, your AI assistant has you covered.
+                        Create, edit, and download beautiful, professional resumes with dynamic sections, real-time previews, and one-click PDF export. Enjoy a user-friendly interface, robust formatting, and smart notifications for a seamless experience.
                     </p>
                     <ul class="space-y-2 text-gray-300">
-                        <li class="flex items-center"><i class="fas fa-check text-green-400 mr-2"></i> Resume analysis & scoring</li>
-                        <li class="flex items-center"><i class="fas fa-check text-green-400 mr-2"></i> Personalized job matching</li>
-                        <li class="flex items-center"><i class="fas fa-check text-green-400 mr-2"></i> Interview question practice</li>
+                        <li class="flex items-center"><i class="fas fa-check text-green-400 mr-2"></i> Dynamic sections for experience, education, skills, and more</li>
+                        <li class="flex items-center"><i class="fas fa-check text-green-400 mr-2"></i> Instant PDF download and print-ready formatting</li>
+                        <li class="flex items-center"><i class="fas fa-check text-green-400 mr-2"></i> Only non-empty sections shown for a clean, modern look</li>
                     </ul>
-                </div> -->
+                </div>
                 
                 <div class="glass rounded-3xl p-8 hover:bg-white/5 hover:scale-105 transition-all duration-500 fade-in">
                     <div class="w-16 h-16 bg-gradient-to-br from-green-500 to-emerald-500 rounded-2xl flex items-center justify-center mb-6 float-animation">

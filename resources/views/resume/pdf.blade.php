@@ -3,201 +3,306 @@
 <head>
     <meta charset="utf-8">
     <title>Resume PDF</title>
+    <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}">
     <style>
-        body { color: #222; font-size: 13px; margin: 0; padding: 0; }
-        .container { max-width: 700px; margin: 0 auto; padding: 32px 24px; }
-        .header { text-align: left; margin-bottom: 24px; }
-        .header h1 { font-size: 24px; margin: 0 0 4px 0; }
-        .section { margin-bottom: 18px; }
-        .section-title { font-weight: bold; font-size: 15px; margin-bottom: 6px; text-transform: uppercase; letter-spacing: 1px; }
-        .field-label { font-weight: bold; display: inline; }
-        .field-value { display: inline; margin-left: 4px; }
-        ul { margin: 0 0 0 18px; padding: 0; }
-        li { margin-bottom: 2px; }
-        hr { border: none; border-top: 1px solid #bbb; margin: 18px 0; }
+        body {
+            color: #000;
+            font-family: sans-serif;
+            font-size: 14px;
+            margin: 0;
+            padding: 0;
+            background: white;
+        }
+
+        .container {
+            max-width: 768px;
+            margin: 0 auto;
+            padding: 40px 16px;
+        }
+
+        /* Header */
+        header {
+            text-align: center;
+            margin-bottom: 16px;
+        }
+
+        header h1 {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 4px;
+        }
+
+        .contact-info {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 12px;
+            font-size: 14px;
+            font-weight: 500;
+        }
+
+        .contact-item {
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        .contact-item a {
+            text-decoration: underline;
+        }
+
+        /* Sections */
+        section {
+            margin-bottom: 20px;
+        }
+
+        .section-title {
+            text-transform: uppercase;
+            font-weight: bold;
+            font-size: 18px;
+            margin-bottom: 4px;
+            letter-spacing: 0.1em;
+        }
+
+        hr {
+            border: none;
+            border-top: 1px solid #000;
+            margin: 8px 0 12px;
+        }
+
+        ul {
+            padding-left: 20px;
+            margin: 0;
+        }
+
+        li {
+            margin-bottom: 6px;
+        }
+
+        .experience-header,
+        .education-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+        }
+
+        .position, .company, .education-degree {
+            font-weight: bold;
+        }
+
+        .experience-right, .education-date {
+            text-align: right;
+            font-size: 12px;
+        }
+
+        .project-name {
+            font-weight: bold;
+        }
+
+        .project-tech {
+            font-size: 12px;
+            font-weight: bold;
+        }
+
+        .project-link a {
+            font-size: 12px;
+            text-decoration: underline;
+        }
+
+        .footer {
+            text-align: right;
+            font-size: 12px;
+            color: #999;
+            font-weight: bold;
+            margin-top: 32px;
+        }
     </style>
 </head>
 <body>
     <div class="container">
-        <div class="header ">
-            <h1 class="!pt-7">{{ $resume->full_name }}</h1>
-            @if(!empty($resume->professional_title))
-                <div><span class="field-label ">Title:</span> <span class="field-value">{{ $resume->professional_title }}</span></div>
-            @endif
-            @if(!empty($resume->email))
-                <div><span class="field-label">Email:</span> <span class="field-value">{{ $resume->email }}</span></div>
-            @endif
-            @if(!empty($resume->phone))
-                <div><span class="field-label">Phone:</span> <span class="field-value">{{ $resume->phone }}</span></div>
-            @endif
-            @if(!empty($resume->location))
-                <div><span class="field-label">Location:</span> <span class="field-value">{{ $resume->location }}</span></div>
-            @endif
-            @if(!empty($resume->linkedin))
-                <div><span class="field-label">LinkedIn:</span> <span class="field-value">{{ $resume->linkedin }}</span></div>
-            @endif
-        </div>
-        <hr>
-        @if(!empty($resume->summary))
-        <div class="section">
-            <div class="section-title !font-bold text-xl">Professional Summary</div>
-            <div>{{ $resume->summary }}</div>
-        </div>
+        {{-- HEADER --}}
+        <header>
+            <h1>{{ $resume->full_name }}</h1>
+            <div class="contact-info">
+                @if($resume->location)
+                    <span class="contact-item">Address: {{ $resume->location }}</span>
+                @endif
+                @if($resume->email)
+                    <span class="contact-item">Email: {{ $resume->email }}</span>
+                @endif
+                @if($resume->phone)
+                    <span class="contact-item">Phone: {{ $resume->phone }}</span>
+                @endif
+                @if($resume->linkedin)
+                    <span class="contact-item">LinkedIn: <a href="{{ $resume->linkedin }}" target="_blank">{{ $resume->linkedin }}</a></span>
+                @endif
+                @if($resume->github)
+                    <span class="contact-item">GitHub: <a href="{{ $resume->github }}" target="_blank">{{ $resume->github }}</a></span>
+                @endif
+                @if($resume->portfolio)
+                    <span class="contact-item">Portfolio: <a href="{{ $resume->portfolio }}" target="_blank">{{ $resume->portfolio }}</a></span>
+                @endif
+            </div>
+        </header>
+
+        {{-- SUMMARY --}}
+        @if($resume->summary)
+            <section>
+                <div class="section-title">Professional Summary</div>
+                <hr>
+                <p style="white-space: pre-line;">{{ $resume->summary }}</p>
+            </section>
         @endif
-        @php $experience = is_array($resume->experience) ? $resume->experience : json_decode($resume->experience, true); @endphp
-        @if($experience)
-        <div class="section">
-            <div class="section-title">Work Experience</div>
-            <ul>
-                @foreach($experience as $exp)
-                    <li>
-                        <span class="field-label">{{ $exp['position'] ?? '' }}</span> at <span class="field-value">{{ $exp['company'] ?? '' }}</span>
-                        @if(!empty($exp['start_date']) || !empty($exp['end_date']))
-                            ({{ $exp['start_date'] ?? '' }} - {{ $exp['end_date'] ?? 'Present' }})
-                        @endif
-                        @if(!empty($exp['location']))
-                            , {{ $exp['location'] }}
-                        @endif
-                        @if(!empty($exp['description']))
-                            <div>{{ $exp['description'] }}</div>
-                        @endif
-                    </li>
-                @endforeach
-            </ul>
-        </div>
-        @endif
-        @php $education = is_array($resume->education) ? $resume->education : json_decode($resume->education, true); @endphp
-        @if($education)
-        <div class="section">
-            <div class="section-title">Education</div>
-            <ul>
-                @foreach($education as $edu)
-                    <li>
-                        <span class="field-label">{{ $edu['degree'] ?? '' }}</span> at <span class="field-value">{{ $edu['institution'] ?? '' }}</span>
-                        @if(!empty($edu['field_of_study']))
-                            ({{ $edu['field_of_study'] }})
-                        @endif
-                        @if(!empty($edu['start_date']) || !empty($edu['end_date']))
-                            , {{ $edu['start_date'] ?? '' }} - {{ $edu['end_date'] ?? 'Present' }}
-                        @endif
-                        @if(!empty($edu['gpa']))
-                            , GPA: {{ $edu['gpa'] }}
-                        @endif
-                    </li>
-                @endforeach
-            </ul>
-        </div>
-        @endif
-        @php $technical_skills = is_array($resume->technical_skills) ? $resume->technical_skills : json_decode($resume->technical_skills, true); @endphp
-        @if($technical_skills)
-        <div class="section">
-            <div class="section-title">Technical Skills</div>
-            <div>{{ implode(', ', $technical_skills) }}</div>
-        </div>
-        @endif
-        @php $soft_skills = is_array($resume->soft_skills) ? $resume->soft_skills : json_decode($resume->soft_skills, true); @endphp
-        @if($soft_skills)
-        <div class="section">
-            <div class="section-title">Soft Skills</div>
-            <div>{{ implode(', ', $soft_skills) }}</div>
-        </div>
-        @endif
-        @php $projects = is_array($resume->projects) ? $resume->projects : json_decode($resume->projects, true); @endphp
-        @if($projects)
-        <div class="section">
-            <div class="section-title">Projects</div>
-            <ul>
-                @foreach($projects as $project)
-                    <li>
-                        <span class="field-label">{{ $project['name'] ?? '' }}</span>
-                        @if(!empty($project['description']))
-                            - {{ $project['description'] }}
-                        @endif
-                        @if(!empty($project['technologies']))
-                            ({{ $project['technologies'] }})
-                        @endif
-                    </li>
-                @endforeach
-            </ul>
-        </div>
-        @endif
-        @php $languages = is_array($resume->languages) ? $resume->languages : json_decode($resume->languages, true); @endphp
-        @if(is_array($languages) && count(array_filter($languages, function($l) { return !empty($l['language']) || !empty($l['name']); })) > 0)
-        <div class="section">
-            <div class="section-title">Languages</div>
-            <ul>
-                @foreach($languages as $language)
-                    @php
-                        $lang = $language['language'] ?? $language['name'] ?? '';
-                        $prof = $language['proficiency'] ?? '';
-                    @endphp
-                    @if(!empty($lang))
-                        <li>{{ $lang }}@if(!empty($prof)) - {{ $prof }}@endif</li>
-                    @endif
-                @endforeach
-            </ul>
-        </div>
-        @endif
+
+        {{-- SKILLS --}}
         @php
-            function normalizeField($field) {
-                if (is_string($field)) {
-                    $decoded = json_decode($field, true);
-                    if (json_last_error() === JSON_ERROR_NONE) {
-                        return $decoded;
-                    }
-                    return $field;
-                }
-                return $field;
-            }
-            $certifications = normalizeField($resume->certifications);
-            $awards = normalizeField($resume->awards);
-            $volunteer = normalizeField($resume->volunteer);
-            $interests = normalizeField($resume->interests);
+            $technical_skills = is_array($resume->technical_skills) ? $resume->technical_skills : json_decode($resume->technical_skills, true) ?? [];
+            $soft_skills = is_array($resume->soft_skills) ? $resume->soft_skills : json_decode($resume->soft_skills, true) ?? [];
         @endphp
-        @if(is_array($certifications) && count(array_filter($certifications)) > 0)
-        <div class="section">
-            <div class="section-title">Certifications</div>
-            <div>{{ implode(', ', array_filter($certifications)) }}</div>
-        </div>
-        @elseif(is_string($certifications) && trim($certifications) !== '' && $certifications !== '[]')
-        <div class="section">
-            <div class="section-title">Certifications</div>
-            <div>{{ $certifications }}</div>
-        </div>
+        @if($technical_skills || $soft_skills)
+            <section>
+                <div class="section-title">Skills</div>
+                <hr>
+                <ul>
+                    @if($technical_skills)
+                        <li><strong>Technical:</strong> {{ implode(', ', $technical_skills) }}</li>
+                    @endif
+                    @if($soft_skills)
+                        <li><strong>Soft:</strong> {{ implode(', ', $soft_skills) }}</li>
+                    @endif
+                </ul>
+            </section>
         @endif
-        @if(is_array($awards) && count(array_filter($awards)) > 0)
-        <div class="section">
-            <div class="section-title">Awards</div>
-            <div>{{ implode(', ', array_filter($awards)) }}</div>
-        </div>
-        @elseif(is_string($awards) && trim($awards) !== '' && $awards !== '[]')
-        <div class="section">
-            <div class="section-title">Awards</div>
-            <div>{{ $awards }}</div>
-        </div>
+
+        {{-- EXPERIENCE --}}
+        @php
+            $experience = is_array($resume->experience) ? $resume->experience : json_decode($resume->experience, true) ?? [];
+        @endphp
+        @if($experience)
+            <section>
+                <div class="section-title">Professional Experience</div>
+                <hr>
+                @foreach($experience as $exp)
+                    <div class="experience-item">
+                        <div class="experience-header">
+                            <div>
+                                <div class="position">{{ $exp['position'] ?? '' }}</div>
+                                <div class="company">{{ $exp['company'] ?? '' }}</div>
+                            </div>
+                            <div class="experience-right">
+                                <div>{{ $exp['start_date'] ?? '' }} – {{ $exp['end_date'] ?? 'Present' }}</div>
+                                @if(!empty($exp['location']))
+                                    <div>{{ $exp['location'] }}</div>
+                                @endif
+                            </div>
+                        </div>
+                        @if(!empty($exp['description']))
+                            <ul>
+                                @foreach(explode("\n", $exp['description']) as $line)
+                                    @if(trim($line))<li>{{ trim($line) }}</li>@endif
+                                @endforeach
+                            </ul>
+                        @endif
+                    </div>
+                @endforeach
+            </section>
         @endif
-        @if(is_array($volunteer) && count(array_filter($volunteer)) > 0)
-        <div class="section">
-            <div class="section-title">Volunteer Work</div>
-            <div>{{ implode(', ', array_filter($volunteer)) }}</div>
-        </div>
-        @elseif(is_string($volunteer) && trim($volunteer) !== '' && $volunteer !== '[]')
-        <div class="section">
-            <div class="section-title">Volunteer Work</div>
-            <div>{{ $volunteer }}</div>
-        </div>
+
+        {{-- PROJECTS --}}
+        @php
+            $projects = is_array($resume->projects) ? $resume->projects : json_decode($resume->projects, true) ?? [];
+        @endphp
+        @if($projects)
+            <section>
+                <div class="section-title">Projects</div>
+                <hr>
+                <ul>
+                    @foreach($projects as $project)
+                        <li>
+                            <div class="project-name">{{ $project['name'] ?? '' }}</div>
+                            @if(!empty($project['github']))
+                                <div class="project-link"><a href="{{ $project['github'] }}" target="_blank">{{ $project['github'] }}</a></div>
+                            @endif
+                            @if(!empty($project['description']))
+                                <div>{{ $project['description'] }}</div>
+                            @endif
+                            @if(!empty($project['technologies']))
+                                <div class="project-tech">Technologies: {{ $project['technologies'] }}</div>
+                            @endif
+                        </li>
+                    @endforeach
+                </ul>
+            </section>
         @endif
-        @if(is_array($interests) && count(array_filter($interests)) > 0)
-        <div class="section">
-            <div class="section-title">Interests</div>
-            <div>{{ implode(', ', array_filter($interests)) }}</div>
-        </div>
-        @elseif(is_string($interests) && trim($interests) !== '' && $interests !== '[]')
-        <div class="section">
-            <div class="section-title">Interests</div>
-            <div>{{ $interests }}</div>
-        </div>
+
+        {{-- EDUCATION --}}
+        @php
+            $education = is_array($resume->education) ? $resume->education : json_decode($resume->education, true) ?? [];
+        @endphp
+        @if($education)
+            <section>
+                <div class="section-title">Education</div>
+                <hr>
+                <ul>
+                    @foreach($education as $edu)
+                        <li class="education-item">
+                            <div>
+                                <div class="education-degree">{{ $edu['degree'] ?? '' }}</div>
+                                <div>{{ $edu['institution'] ?? '' }}{{ !empty($edu['location']) ? ' – '.$edu['location'] : '' }}</div>
+                            </div>
+                            <div class="education-date">{{ $edu['start_date'] ?? '' }} – {{ $edu['end_date'] ?? '' }}</div>
+                            @if(!empty($edu['gpa']))
+                                <div>GPA: {{ $edu['gpa'] }}</div>
+                            @endif
+                        </li>
+                    @endforeach
+                </ul>
+            </section>
         @endif
+
+        {{-- OPTIONAL SECTIONS --}}
+        @php
+            $certifications = json_decode($resume->certifications, true) ?? [];
+            $awards = json_decode($resume->awards, true) ?? [];
+            $volunteer = json_decode($resume->volunteer, true) ?? [];
+            $interests = json_decode($resume->interests, true) ?? [];
+            $languages = is_array($resume->languages) ? $resume->languages : json_decode($resume->languages, true) ?? [];
+        @endphp
+
+        @foreach(['Certifications' => $certifications, 'Awards' => $awards, 'Volunteer' => $volunteer, 'Interests' => $interests] as $label => $list)
+            @if(is_array($list) && count(array_filter($list)) > 0)
+                <section>
+                    <div class="section-title">{{ $label }}</div>
+                    <hr>
+                    <ul>
+                        @foreach($list as $item)
+                            @if(trim($item))<li>{{ $item }}</li>@endif
+                        @endforeach
+                    </ul>
+                </section>
+            @endif
+        @endforeach
+
+        {{-- LANGUAGES --}}
+        @if($languages)
+            <section>
+                <div class="section-title">Languages</div>
+                <hr>
+                <ul>
+                    @foreach($languages as $lang)
+                        @php
+                            $langName = $lang['language'] ?? $lang['name'] ?? '';
+                            $prof = $lang['proficiency'] ?? '';
+                        @endphp
+                        @if($langName)
+                            <li>{{ $langName }}{{ $prof ? ' — ' . $prof : '' }}</li>
+                        @endif
+                    @endforeach
+                </ul>
+            </section>
+        @endif
+
+       
     </div>
 </body>
 </html>

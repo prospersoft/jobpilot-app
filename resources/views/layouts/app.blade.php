@@ -13,6 +13,10 @@
     <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
     <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
     <style>
+        html, body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif !important;
+        }
+
         /* Custom animations and glassmorphism */
         .glass {
             background: rgba(255, 255, 255, 0.1);
@@ -20,11 +24,11 @@
             -webkit-backdrop-filter: blur(10px);
             border: 1px solid rgba(255, 255, 255, 0.2);
         }
-        .gradient-text {
+        /* .gradient-text {
             background: linear-gradient(135deg, #3B82F6 0%, #EF4444 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-        }
+        } */
         .float-animation {
             animation: float 6s ease-in-out infinite;
         }
@@ -71,7 +75,7 @@
         .fade-in:nth-child(6) { animation-delay: 0.6s; }
 
         .gradient-text {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(135deg, #667eea 0%, #3B82F6 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
@@ -141,7 +145,7 @@
 <body class="font-sans antialiased bg-black text-white overflow-x-hidden scroll-smooth" x-data="{ mobileMenuOpen: false }">
     
     <!-- Navigation -->
-    <nav class="fixed w-full top-0 z-50 backdrop-blur-md bg-white/80 dark:bg-neutral-900/80 border border-neutral-200 dark:border-neutral-700 shadow-2xl rounded-xl">
+    <nav class="fixed w-full top-0 z-50 backdrop-blur-md  dark:bg-neutral-900/80 border border-neutral-200 dark:border-neutral-700 shadow-2xl rounded-xl">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center h-20">
                 <!-- Logo -->

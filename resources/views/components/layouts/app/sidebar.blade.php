@@ -24,14 +24,16 @@
         <flux:sidebar sticky stashable class="border-e border-zinc-200 bg-zinc-50 dark:border-zinc-700 dark:bg-zinc-900">
             <flux:sidebar.toggle class="lg:hidden" icon="x-mark" />
 
-            <a href="{{ route('dashboard') }}" class="me-5 flex items-center space-x-2 rtl:space-x-reverse" wire:navigate>
+            <a href="{{ route('dashboard') }}" class="me-5 flex items-center  rtl:space-x-reverse" wire:navigate>
                 <div class="">
-                        <img src="/images/jp.png" alt="JobProfi Logo" class="w-10 h-10">
-                        <!-- <i class="fas fa-rocket text-black"></i> -->
-                    </div>
-                    <span class="text-2xl font-bold font-mono text-white dark:text-white bg-clip-text text-transparent">
-                        JOBPROFI
-                    </span>
+                    <img src="/images/jpb2.png" alt="JobProfi Logo" class="w-10 h-10 block dark:hidden">
+                    <img src="/images/jpw.png" alt="JobProfi Logo" class="w-10 h-10 hidden dark:block">
+                    <!-- <i class="fas fa-rocket text-black"></i> -->
+                </div>
+                <span class="text-2xl  font-mono 
+                gradienttext-zinc-900 dark:text-white bg-clip-text">
+                    JOBPROFI
+                </span>
             </a>
 
             <flux:navlist variant="outline">

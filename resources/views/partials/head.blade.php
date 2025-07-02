@@ -3,9 +3,10 @@
 
 <title>{{ $title ?? config('app.name') }}</title>
 
-<link rel="icon" href="/jp.png" sizes="any">
-<link rel="icon" href="/jp.png" type="image/svg+xml">
-<link rel="favicon" href="/jp.png">
+<!-- Light mode favicon -->
+<link rel="icon" type="image/x-icon" href="/images/jpb.png" media="(prefers-color-scheme: light)" class="">
+<!-- Dark mode favicon -->
+<link rel="icon" type="image/x-icon" href="/images/jp.png" media="(prefers-color-scheme: dark)" class="">
 
 <link rel="preconnect" href="https://fonts.bunny.net">
 <link href="https://fonts.bunny.net/css?family=instrument-sans:400,500,600" rel="stylesheet" />

@@ -21,7 +21,7 @@
                 </div>
                 <h1 class="text-5xl md:text-7xl font-bold mb-6 slide-in">
                     The System You Wish You Had When You 
-                    <span class="block gradient-text">Started Applying.</span>
+                    <span class="block text-blue-600">Started Applying.</span>
                 </h1>
                 <p class="text-xl text-gray-400 mb-12 max-w-3xl mx-auto slide-in">
                     We created JobProfi because we’ve been there lost in spreadsheets, ghosted after interviews, and wondering what to do next. Our mission is to give every job seeker clarity, control, and confidence through tools that organize, track, and transform your career journey

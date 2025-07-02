@@ -44,7 +44,7 @@ new #[Layout('components.layouts.auth')] class extends Component {
     <x-auth-session-status class="text-center" :status="session('status')" />
 
     <div class="flex flex-col gap-4">
-        <a href="{{ route('auth.linkedin') }}" class="flex items-center justify-center gap-2 px-4 py-2 rounded-lg border border-[#0077B5] bg-[#0077B5] text-white font-semibold hover:bg-[#005983] transition">
+        <a href="{{ route('auth.linkedin') }}" class="flex items-center justify-center gap-2 px-4 py-2 rounded-lg border border-[#0077B5] bg-[#0077B5] text-black font-semibold hover:bg-[#005983] transition dark:border-[#0077B5] dark:bg-[#0077B5] dark:text-white dark:hover:bg-[#005983]">
             <i class="fab fa-linkedin text-xl"></i> Continue with LinkedIn
         </a>
     </div>

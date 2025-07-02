@@ -75,6 +75,7 @@ class ResumeController extends Controller
             'phone' => 'nullable|string|max:255',
             'location' => 'nullable|string|max:255',
             'linkedin' => 'nullable|string|max:255',
+            'github' => 'nullable|string|max:255', // Add github validation
             'summary' => 'nullable|string',
             'experience' => 'nullable',
             'education' => 'nullable',
@@ -129,6 +130,7 @@ class ResumeController extends Controller
             'phone' => 'nullable|string|max:255',
             'location' => 'nullable|string|max:255',
             'linkedin' => 'nullable|string|max:255',
+            'github' => 'nullable|string|max:255', // Add github validation
             'summary' => 'nullable|string',
             'experience' => 'nullable',
             'education' => 'nullable',

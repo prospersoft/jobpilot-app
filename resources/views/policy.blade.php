@@ -21,7 +21,7 @@
                 </div>
                 <h1 class="text-5xl md:text-7xl font-bold mb-6 slide-in">
                     Privacy Policy
-                    <span class="block gradient-text">& Terms of Service</span>
+                    <span class="block text-blue-600">& Terms of Service</span>
                 </h1>
                 <p class="text-xl text-gray-400 mb-8 max-w-3xl mx-auto slide-in">
                     We're committed to protecting your privacy and being transparent about how we handle your data.

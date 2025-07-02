@@ -17,6 +17,7 @@ class Resume extends Model
         'phone',
         'location',
         'linkedin',
+        'github', // Added github here
         'summary',
         'experience',
         'education',

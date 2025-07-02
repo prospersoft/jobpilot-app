@@ -8,14 +8,11 @@
             <div class="flex w-full max-w-sm flex-col gap-2">
                 <a href="{{ route('home') }}" class="flex flex-col items-center gap-2 font-medium" wire:navigate>
                     <div class="">
-                        <img src="/images/jp.png" alt="JobProfi Logo" class="w-10 h-10">
-                        <!-- <i class="fas fa-rocket text-black"></i> -->
+                        <img src="/images/jpb2.png" alt="JobProfi Logo" class="w-20 h-20 block dark:hidden">
+                        <img src="/images/jpw.png" alt="JobProfi Logo" class="w-20 h-20 hidden dark:block">
+                        
                     </div>
-                    <!-- <span class="text-2xl font-bold font-mono text-blue-600 bg-clip-text text-transparent">
-                        JOBPROFI
-                    </span> -->
                 </div>
-                <span class="sr-only">{{ config('app.name', 'JobProfi') }}</span>
             </a>
             <div class="flex flex-col gap-6">
                 {{ $slot }}

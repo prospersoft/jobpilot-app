@@ -21,7 +21,7 @@
                 </div>
                 <h1 class="text-5xl md:text-7xl !text-white font-bold mb-6 slide-in">
                     Data Protection
-                    <span class="block gradient-text">& Privacy Policy</span>
+                    <span class="block text-blue-600">& Privacy Policy</span>
                 </h1>
                 <p class="text-xl text-gray-400 mb-8 max-w-3xl mx-auto slide-in">
                     We're committed to safeguarding your personal data and maintaining the highest standards of privacy protection.

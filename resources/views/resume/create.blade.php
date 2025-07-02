@@ -142,6 +142,10 @@
                                         <label class="block text-sm font-medium text-gray-700 dark:text-gray-200">LinkedIn URL</label>
                                         <flux:input type="url" name="linkedin" placeholder="https://linkedin.com/in/yourname" class="mt-1 w-full" />
                                     </div>
+                                    <div>
+                                        <label class="block text-sm font-medium text-gray-700 dark:text-gray-200">GitHub Profile </label>
+                                        <flux:input type="url" name="github" placeholder="https://github.com/yourusername" class="mt-1 w-full" />
+                                    </div>
                                 </div>
                                 
                                 <div class="!mt-2">
@@ -168,12 +172,16 @@
                                                 <flux:input type="text" name="experience[0][position]" class=""/>
                                             </div>
                                             <div>
+                                                <label class="block text-sm font-medium text-neutral-700 dark:text-neutral-300 mb-1">Location</label>
+                                                <flux:input type="text" name="experience[0][location]" class="" placeholder="e.g. Lagos, Nigeria"/>
+                                            </div>
+                                            <div>
                                                 <label class="block text-sm font-medium text-neutral-700 dark:text-neutral-300 mb-1">Start Date</label>
                                                 <flux:input type="month" name="experience[0][start_date]" class=""/>
                                             </div>
                                             <div>
                                                 <label class="block text-sm font-medium text-neutral-700 dark:text-neutral-300 mb-1">End Date</label>
-                                                <flux:input type="month" name="experience[${index}][end_date]" class="" />
+                                                <flux:input type="month" name="experience[0][end_date]" class=""/>
                                                 <div class="mt-1 flex items-center">
                                                     <flux:field variant="inline">
                                                         <flux:checkbox wire:model="terms" />
@@ -378,46 +386,41 @@
                     </div>
                     
                     <div id="builder-suggestions" class="space-y-4">
-                        <div class="bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-800 rounded-lg p-4">
+
+                        <!-- Quick Tips -->
+                        <div class="bg-blue-50 dark:bg-blue-900/20  rounded-lg p-4">
                             <h4 class="font-medium text-blue-900 dark:text-blue-100 mb-2">💡 Quick Tips</h4>
                             <ul class="text-sm text-blue-800 dark:text-blue-200 space-y-1">
                                 <li>• Use action verbs in your experience descriptions</li>
                                 <li>• Quantify your achievements with numbers</li>
-                                
                             </ul>
                         </div>
-                        <div class="bg-green-50 dark:bg-green-900/20 border border-green-200 dark:border-green-800 rounded-lg p-4">
+
+                        <!-- Resume Features -->
+                        <div class="bg-green-50 dark:bg-green-900/20  rounded-lg p-4">
                             <h4 class="font-medium text-green-900 dark:text-green-100 mb-2">🎯 Resume Building Features</h4>
                             <ul class="text-sm text-green-800 dark:text-green-200 space-y-2">
                                 <li>• <strong>Smart Content:</strong> Write clear, concise descriptions</li>
-                               
                                 <li>• <strong>ATS Optimization:</strong> Make your resume scanner-friendly</li>
                             </ul>
                         </div>
-                        <div class="bg-yellow-50 dark:bg-yellow-900/20 border border-yellow-200 dark:border-yellow-800 rounded-lg p-4">
-                            <h4 class="font-medium text-yellow-900 dark:text-yellow-100 mb-2">📊 Completion Status</h4>
-                            <div class="space-y-2 text-sm">
-                                <div class="flex justify-between">
-                                    <span class="text-yellow-800 dark:text-yellow-200">Personal Info</span>
-                                    <span class="text-yellow-600 dark:text-yellow-400" id="personal-status">0%</span>
-                                </div>
-                                <div class="flex justify-between">
-                                    <span class="text-yellow-800 dark:text-yellow-200">Experience</span>
-                                    <span class="text-yellow-600 dark:text-yellow-400" id="experience-status">0%</span>
-                                </div>
-                                <div class="flex justify-between">
-                                    <span class="text-yellow-800 dark:text-yellow-200">Education</span>
-                                    <span class="text-yellow-600 dark:text-yellow-400" id="education-status">0%</span>
-                                </div>
-                                <div class="flex justify-between">
-                                    <span class="text-yellow-800 dark:text-yellow-200">Skills</span>
-                                    <span class="text-yellow-600 dark:text-yellow-400" id="skills-status">0%</span>
-                                </div>
-                            </div>
+
+                        <!-- New ATS Keyword Tip Block -->
+                        <div class="bg-gray-100 dark:bg-zinc-800  rounded-lg p-4">
+                            <h4 class="font-medium text-indigo-900 dark:text-indigo-100 mb-2">🔑 Match the Job Description</h4>
+                            <ul class="text-sm text-indigo-800 dark:text-indigo-200 space-y-1">
+                                <li>• <strong>Use the same job title:</strong> If the job is for a "Full Stack Developer", include that exact title in your summary — even if it's your goal, not your current role.</li>
+                                <li>• <strong>Borrow key words:</strong> Look at the job post and use the same words — tools, tech, and responsibilities — in your summary and experience.</li>
+                                <li>• <strong>Why it matters:</strong> Applicant Tracking Systems (ATS) scan for these exact words. Without them, your resume might get skipped — even if you're qualified.</li>
+                            </ul>
                         </div>
+
+                        
+
                     </div>
                 </div>
             </div>
+
         </div>
     </div>
 
@@ -699,6 +702,10 @@
                             <flux:input type="text" name="experience[${index}][company]" class="" />
                         </div>
                         <div>
+                            <label class="block text-sm font-medium text-gray-700 dark:text-gray-200">Location</label>
+                            <flux:input type="text" name="experience[${index}][location]" class="" placeholder="e.g. Lagos, Nigeria"/>
+                        </div>
+                        <div>
                             <label class="block text-sm font-medium text-gray-700 dark:text-gray-200">Start Date</label>
                             <flux:input type="month" name="experience[${index}][start_date]" class="" />
                         </div>
@@ -892,6 +899,7 @@
                 personal += `<div class="mb-1 text-sm font-semibold">${data.professional_title || ''}</div>`;
                 personal += `<div class="mb-1 text-sm">${data.email || ''} | ${data.phone || ''} | ${data.location || ''}</div>`;
                 if (data.linkedin) personal += `<div class="mb-1 text-sm"><a href="${data.linkedin}" class="text-blue-700 underline" target="_blank">${data.linkedin}</a></div>`;
+                if (data.github) personal += `<div class="mb-1 text-sm"><a href="${data.github}" class="text-blue-700 underline" target="_blank">${data.github}</a></div>`;
                 // Summary
                 let summary = data.summary ? `<div class="mb-2 text-sm">${data.summary}</div>` : '';
                 // Experience

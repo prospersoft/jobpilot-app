@@ -115,6 +115,22 @@
                                            class="w-full px-3 py-2 border border-neutral-300 dark:border-neutral-600 rounded-lg bg-white dark:bg-neutral-900 text-neutral-900 dark:text-white focus:ring-2 focus:ring-blue-500 focus:border-transparent" 
                                            placeholder="https://linkedin.com/in/yourprofile">
                                 </div>
+
+                                <div>
+                                    <label class="block text-sm font-medium text-neutral-700 dark:text-neutral-300 mb-2">
+                                        Portfolio Website
+                                    </label>
+                                    <input type="url" name="website" value="{{ old('website', $resume->website) }}" 
+                                           class="w-full px-3 py-2 border border-neutral-300 dark:border-neutral-600 rounded-lg bg-white dark:bg-neutral-900 text-neutral-900 dark:text-white focus:ring-2 focus:ring-blue-500 focus:border-transparent" 
+                                           placeholder="https://yourwebsite.com">
+                                </div>
+
+                                <div class="md:col-span-2">
+                                    <label class="block text-sm font-medium text-neutral-700 dark:text-neutral-300 mb-2">
+                                        GitHub Profile <span class="text-xs text-neutral-400">(optional)</span>
+                                    </label>
+                                    <input type="url" name="github" value="{{ old('github', $resume->github ?? '') }}" class="w-full px-3 py-2 border border-neutral-300 dark:border-neutral-600 rounded-lg bg-white dark:bg-neutral-900 text-neutral-900 dark:text-white focus:ring-2 focus:ring-blue-500 focus:border-transparent" placeholder="https://github.com/yourusername">
+                                </div>
                             </div>
 
                             <div class="mt-6">
@@ -169,6 +185,12 @@
                                             <label class="block text-sm font-medium text-neutral-700 dark:text-neutral-300 mb-1">Position</label>
                                             <input type="text" name="experience[{{ $index }}][position]" value="{{ $experience['position'] ?? '' }}" 
                                                    class="w-full px-3 py-2 border border-neutral-300 dark:border-neutral-600 rounded-lg bg-white dark:bg-neutral-900 text-neutral-900 dark:text-white focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+                                        </div>
+                                        
+                                        <div>
+                                            <label class="block text-sm font-medium text-neutral-700 dark:text-neutral-300 mb-1">Location</label>
+                                            <input type="text" name="experience[{{ $index }}][location]" value="{{ $experience['location'] ?? '' }}" 
+                                                   class="w-full px-3 py-2 border border-neutral-300 dark:border-neutral-600 rounded-lg bg-white dark:bg-neutral-900 text-neutral-900 dark:text-white focus:ring-2 focus:ring-blue-500 focus:border-transparent" placeholder="e.g. New York, NY">
                                         </div>
                                         
                                         <div>
@@ -362,7 +384,7 @@
                                                placeholder="e.g. Leadership, Communication">
                                         @if($index > 0)
                                         <button type="button" onclick="removeSkill(this)" class="text-red-500 hover:text-red-700 p-1">
-                                            <i class="fas fa-trash-alt h-4 w-4"></i>
+                                            <i class="fas fa-trash-alt"></i>
                                         </button>
                                         @endif
                                     </div>
@@ -440,6 +462,7 @@
                                         @endif
                                     </div>
                                     <input type="url" name="projects[{{ $index }}][url]" value="{{ $project['url'] ?? '' }}" class="w-full px-3 py-2 border border-neutral-300 dark:border-neutral-600 rounded-lg bg-white dark:bg-neutral-900 text-neutral-900 dark:text-white focus:ring-2 focus:ring-blue-500 focus:border-transparent mb-2" placeholder="Project URL (optional)">
+                                    <input type="text" name="projects[{{ $index }}][technologies]" value="{{ $project['technologies'] ?? '' }}" class="w-full px-3 py-2 border border-neutral-300 dark:border-neutral-600 rounded-lg bg-white dark:bg-neutral-900 text-neutral-900 dark:text-white focus:ring-2 focus:ring-blue-500 focus:border-transparent mb-2" placeholder="Technologies used (comma separated)">
                                     <textarea name="projects[{{ $index }}][description]" rows="2" class="w-full px-3 py-2 border border-neutral-300 dark:border-neutral-600 rounded-lg bg-white dark:bg-neutral-900 text-neutral-900 dark:text-white focus:ring-2 focus:ring-blue-500 focus:border-transparent" placeholder="Describe the project...">{{ $project['description'] ?? '' }}</textarea>
                                 </div>
                                 @endforeach
@@ -638,6 +661,7 @@ window.addProject = function() {
             </button>
         </div>
         <input type="url" name="projects[${idx}][url]" class="w-full px-3 py-2 border border-neutral-300 dark:border-neutral-600 rounded-lg bg-white dark:bg-neutral-900 text-neutral-900 dark:text-white focus:ring-2 focus:ring-blue-500 focus:border-transparent mb-2" placeholder="Project URL (optional)">
+        <input type="text" name="projects[${idx}][technologies]" class="w-full px-3 py-2 border border-neutral-300 dark:border-neutral-600 rounded-lg bg-white dark:bg-neutral-900 text-neutral-900 dark:text-white focus:ring-2 focus:ring-blue-500 focus:border-transparent mb-2" placeholder="Technologies used (comma separated)">
         <textarea name="projects[${idx}][description]" rows="2" class="w-full px-3 py-2 border border-neutral-300 dark:border-neutral-600 rounded-lg bg-white dark:bg-neutral-900 text-neutral-900 dark:text-white focus:ring-2 focus:ring-blue-500 focus:border-transparent" placeholder="Describe the project..."></textarea>
     `;
     container.appendChild(div);
@@ -773,6 +797,11 @@ window.addExperience = function() {
                 <label class="block text-sm font-medium text-neutral-700 dark:text-neutral-300 mb-1">Position</label>
                 <input type="text" name="experience[${idx}][position]" class="w-full px-3 py-2 border border-neutral-300 dark:border-neutral-600 rounded-lg bg-white dark:bg-neutral-900 text-neutral-900 dark:text-white focus:ring-2 focus:ring-blue-500 focus:border-transparent">
             </div>
+            <div>
+                <label class="block text-sm font-medium text-neutral-700 dark:text-neutral-300 mb-1">Location</label>
+                <input type="text" name="experience[${idx}][location]" class="w-full px-3 py-2 border border-neutral-300 dark:border-neutral-600 rounded-lg bg-white dark:bg-neutral-900 text-neutral-900 dark:text-white focus:ring-2 focus:ring-blue-500 focus:border-transparent" placeholder="e.g. New York, Remote">
+            </div>
+            <div></div>
             <div>
                 <label class="block text-sm font-medium text-neutral-700 dark:text-neutral-300 mb-1">Start Date</label>
                 <input type="month" name="experience[${idx}][start_date]" class="w-full px-3 py-2 border border-neutral-300 dark:border-neutral-600 rounded-lg bg-white dark:bg-neutral-900 text-neutral-900 dark:text-white focus:ring-2 focus:ring-blue-500 focus:border-transparent">

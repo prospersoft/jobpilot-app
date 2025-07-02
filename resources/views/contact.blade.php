@@ -20,7 +20,7 @@
                 </div>
                 <h1 class="text-5xl md:text-7xl font-bold mb-6 slide-in">
                     Let's Start a
-                    <span class="block gradient-text">Conversation</span>
+                    <span class="block text-blue-600">Conversation</span>
                 </h1>
                 <p class="text-xl text-gray-400 mb-12 max-w-3xl mx-auto slide-in">
                     We're here to help you succeed. Whether you have questions, feedback, or need support, our team is ready to assist you on your career journey.
@@ -72,7 +72,7 @@
                                 <textarea id="message" name="message" rows="6" class="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-xl text-white placeholder-gray-400 focus:outline-none focus:border-blue-500 focus:bg-white/10 transition duration-300 resize-none" placeholder="Tell us how we can help you..." required></textarea>
                             </div>
                             
-                            <button type="submit" class="group w-full bg-gradient-to-r from-blue-500 to-purple-500 text-white px-8 py-4 rounded-xl text-lg font-medium hover:from-blue-600 hover:to-purple-600 transition-all duration-300 flex items-center justify-center">
+                            <button type="submit" class="group w-full bg-blue-600 text-white px-8 py-4 rounded-xl text-lg font-medium hover:from-blue-600 hover:to-purple-600 transition-all duration-300 flex items-center justify-center">
                                 Send Message
                                 <i class="fas fa-paper-plane ml-2 group-hover:translate-x-1 transition-transform"></i>
                             </button>
